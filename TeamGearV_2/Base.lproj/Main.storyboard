@@ -109,25 +109,49 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="date equipment was loaned:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WY4-yu-KCu">
+                                <rect key="frame" x="20" y="238" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="C1k-IS-fsr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="date of equipment return" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JSY-bF-vuT">
+                                <rect key="frame" x="20" y="282" width="374" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="p5W-zm-Qgv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="JSY-bF-vuT" firstAttribute="leading" secondItem="iT6-y8-dgU" secondAttribute="leading" constant="20" id="0TY-gH-NIB"/>
                             <constraint firstItem="tLQ-RL-s7i" firstAttribute="leading" secondItem="Ifx-Ly-NQh" secondAttribute="trailing" constant="10" id="GKK-7M-DWp"/>
                             <constraint firstItem="tLQ-RL-s7i" firstAttribute="top" secondItem="iT6-y8-dgU" secondAttribute="top" constant="20" id="KC1-07-Eko"/>
                             <constraint firstItem="Ifx-Ly-NQh" firstAttribute="top" secondItem="iT6-y8-dgU" secondAttribute="top" constant="20" id="PE4-1y-14y"/>
                             <constraint firstItem="Ifx-Ly-NQh" firstAttribute="leading" secondItem="iT6-y8-dgU" secondAttribute="leading" constant="20" id="SmI-LU-JtC"/>
+                            <constraint firstItem="JSY-bF-vuT" firstAttribute="top" secondItem="WY4-yu-KCu" secondAttribute="bottom" constant="10" id="SrO-ct-A8Y"/>
                             <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="tLQ-RL-s7i" secondAttribute="trailing" constant="20" id="XRB-Fw-b0p"/>
                             <constraint firstItem="qA0-8O-D6a" firstAttribute="top" secondItem="tLQ-RL-s7i" secondAttribute="bottom" constant="10" id="bap-93-vkj"/>
+                            <constraint firstItem="WY4-yu-KCu" firstAttribute="leading" secondItem="iT6-y8-dgU" secondAttribute="leading" constant="20" id="bbb-i4-AqU"/>
                             <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="qA0-8O-D6a" secondAttribute="trailing" constant="20" id="c2i-fl-TKi"/>
                             <constraint firstItem="qA0-8O-D6a" firstAttribute="leading" secondItem="LWY-Wj-Eue" secondAttribute="trailing" constant="10" id="dUx-Fu-eVa"/>
                             <constraint firstItem="LWY-Wj-Eue" firstAttribute="leading" secondItem="Ifx-Ly-NQh" secondAttribute="trailing" constant="10" id="lOU-0s-e19"/>
                             <constraint firstItem="LWY-Wj-Eue" firstAttribute="top" secondItem="tLQ-RL-s7i" secondAttribute="bottom" constant="10" id="mZm-HO-B7i"/>
+                            <constraint firstItem="WY4-yu-KCu" firstAttribute="top" secondItem="Ifx-Ly-NQh" secondAttribute="bottom" constant="10" id="sxw-Ze-pdZ"/>
+                            <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="JSY-bF-vuT" secondAttribute="trailing" constant="20" id="vb6-bC-aCO"/>
+                            <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="WY4-yu-KCu" secondAttribute="trailing" constant="20" id="y6U-Ep-kit"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iT6-y8-dgU"/>
                     </view>
                     <navigationItem key="navigationItem" id="CJK-Hf-HR3"/>
                     <connections>
                         <outlet property="numberOfItemsLblOutlet" destination="LWY-Wj-Eue" id="Slh-ib-CQx"/>
+                        <outlet property="txtLoanOutlet" destination="WY4-yu-KCu" id="avH-Iq-QrM"/>
+                        <outlet property="txtReturnOutlet" destination="JSY-bF-vuT" id="0Ef-3c-9jU"/>
                     </connections>
                 </viewController>
             </objects>

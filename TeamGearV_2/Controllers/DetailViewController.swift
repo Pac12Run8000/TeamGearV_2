@@ -12,6 +12,8 @@ import CoreData
 class DetailViewController: UIViewController {
     lazy var managedObjectContext:NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext)!
     
+    
+    let datePicker = UIDatePicker()
     var itemState:ItemState?
     var itemCount:Int16? = 1
     var borrowedItemToEdit:BorrowedItem? {
@@ -22,13 +24,19 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var numberOfItemsLblOutlet: UILabel!
     
+    @IBOutlet weak var txtLoanOutlet: UITextField!
     
-
+    @IBOutlet weak var txtReturnOutlet: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        createDatePicker()
+        
         if itemState == .add {
            let borrowedItem = BorrowedItem(context: managedObjectContext)
+            
+            
             
         } else if itemState == .edit {
            
@@ -44,4 +52,28 @@ class DetailViewController: UIViewController {
     }
     
 
+}
+
+// MARK:- DatePicker functionality
+extension DetailViewController {
+    
+    func createDatePicker() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonPressed))
+        toolbar.setItems([doneButton], animated: true)
+        txtLoanOutlet.inputAccessoryView = toolbar
+        txtLoanOutlet.inputView = datePicker
+    }
+    
+    @objc func doneButtonPressed() {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MMM d, h:mm a"
+        let formattedDate = dateformatter.string(from: datePicker.date)
+        txtLoanOutlet.text = "date borrowed: \(formattedDate)"
+        self.view.endEditing(true)
+        
+    }
+    
 }
