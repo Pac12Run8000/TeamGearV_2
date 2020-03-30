@@ -7,15 +7,27 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailViewController: UIViewController {
-    
+    lazy var managedObjectContext:NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext)!
     var itemState:ItemState?
+    
+    var borrowedItemToEdit:BorrowedItem? {
+        didSet {
+            
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("ItemState:\(itemState!)")
+        if itemState == .add {
+           let borrowedItem = BorrowedItem(context: managedObjectContext)
+            
+        } else if itemState == .edit {
+           
+        }
     }
     
 
