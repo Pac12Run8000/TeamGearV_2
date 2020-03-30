@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class DetailViewController: UIViewController {
+    
     lazy var managedObjectContext:NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext)!
     
     var variableTextField:UITextField!
@@ -23,9 +24,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBOutlet weak var numberOfItemsLblOutlet: UILabel!
-    
     @IBOutlet weak var txtLoanOutlet: UITextField!
-    
     @IBOutlet weak var txtReturnOutlet: UITextField!
     
     override func viewDidLoad() {
@@ -63,6 +62,8 @@ extension DetailViewController {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
+        
+        
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonPressed))
         toolbar.setItems([doneButton], animated: true)
         variableTextField.inputAccessoryView = toolbar
@@ -94,4 +95,8 @@ extension DetailViewController:UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    
 }
+
+
