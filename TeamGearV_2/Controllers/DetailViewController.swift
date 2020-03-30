@@ -12,7 +12,7 @@ import CoreData
 class DetailViewController: UIViewController {
     lazy var managedObjectContext:NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext)!
     
-    
+    var variableTextField:UITextField!
     let datePicker = UIDatePicker()
     var itemState:ItemState?
     var itemCount:Int16? = 1
@@ -31,7 +31,9 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createDatePicker()
+
+        txtLoanOutlet.delegate = self
+        txtReturnOutlet.delegate = self
         
         if itemState == .add {
            let borrowedItem = BorrowedItem(context: managedObjectContext)
@@ -63,17 +65,33 @@ extension DetailViewController {
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonPressed))
         toolbar.setItems([doneButton], animated: true)
-        txtLoanOutlet.inputAccessoryView = toolbar
-        txtLoanOutlet.inputView = datePicker
+        variableTextField.inputAccessoryView = toolbar
+        variableTextField.inputView = datePicker
     }
     
     @objc func doneButtonPressed() {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "MMM d, h:mm a"
         let formattedDate = dateformatter.string(from: datePicker.date)
-        txtLoanOutlet.text = "date borrowed: \(formattedDate)"
+        variableTextField.text = "date borrowed: \(formattedDate)"
         self.view.endEditing(true)
         
     }
     
+}
+
+
+// MARK:- UITextFieldDelegate functionality
+extension DetailViewController:UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == txtLoanOutlet || textField == txtReturnOutlet {
+            variableTextField = textField
+            createDatePicker()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
