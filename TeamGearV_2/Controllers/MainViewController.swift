@@ -7,14 +7,44 @@
 //
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController {
+    
+    var managedObjectContext:NSManagedObjectContext?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        managedObjectContext = (UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext
         
+        // Reading from CoreData
+//        let borrowedItemRequest:NSFetchRequest<BorrowedItem> = BorrowedItem.fetchRequest()
+//        borrowedItemRequest.returnsObjectsAsFaults = false
+//        
+//        var borrowedItemsArray = [BorrowedItem]()
+//        
+//        do {
+//            borrowedItemsArray = try (managedObjectContext?.fetch(borrowedItemRequest))!
+//        } catch {
+//            print("error:\(error.localizedDescription)")
+//        }
+//        
+//        for item in borrowedItemsArray {
+//            print("item:\(item.title)", "number of items:\(item.numberOfItems)")
+//        }
     
+        
+        // Entering info to coredata
+//        let borrowedItem = BorrowedItem(context: managedObjectContext!)
+//        borrowedItem.title = "Level 1 USA Boxing Gloves"
+//        borrowedItem.numberOfItems = 5
+//        do {
+//            try CoreDataStack.saveContext(context: managedObjectContext!)
+//            print("Save was successful")
+//        } catch {
+//            print("error:\(error.localizedDescription)")
+//        }
        
     }
     
