@@ -15,6 +15,8 @@
 		09B21232243172F000EA9F7D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B21231243172F000EA9F7D /* MainViewController.swift */; };
 		09B212342431736500EA9F7D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B212332431736500EA9F7D /* DetailViewController.swift */; };
 		09B212392431772800EA9F7D /* ItemState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B212382431772800EA9F7D /* ItemState.swift */; };
+		09B2124024317A1600EA9F7D /* TeamGearV_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09B2123E24317A1600EA9F7D /* TeamGearV_2.xcdatamodeld */; };
+		09B2124224317C1500EA9F7D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2124124317C1500EA9F7D /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		09B21231243172F000EA9F7D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		09B212332431736500EA9F7D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		09B212382431772800EA9F7D /* ItemState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemState.swift; sourceTree = "<group>"; };
+		09B2123F24317A1600EA9F7D /* TeamGearV_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeamGearV_2.xcdatamodel; sourceTree = "<group>"; };
+		09B2124124317C1500EA9F7D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		09B2121B2431727B00EA9F7D /* TeamGearV_2 */ = {
 			isa = PBXGroup;
 			children = (
+				09B2123A2431791F00EA9F7D /* Model */,
 				09B21235243176E100EA9F7D /* Enumerations */,
 				09B21230243172CB00EA9F7D /* Controllers */,
 				09B2121C2431727B00EA9F7D /* AppDelegate.swift */,
@@ -87,6 +92,15 @@
 				09B212382431772800EA9F7D /* ItemState.swift */,
 			);
 			path = Enumerations;
+			sourceTree = "<group>";
+		};
+		09B2123A2431791F00EA9F7D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09B2123E24317A1600EA9F7D /* TeamGearV_2.xcdatamodeld */,
+				09B2124124317C1500EA9F7D /* CoreDataStack.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,11 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09B2124224317C1500EA9F7D /* CoreDataStack.swift in Sources */,
 				09B21232243172F000EA9F7D /* MainViewController.swift in Sources */,
 				09B2121D2431727B00EA9F7D /* AppDelegate.swift in Sources */,
 				09B212392431772800EA9F7D /* ItemState.swift in Sources */,
 				09B2121F2431727B00EA9F7D /* SceneDelegate.swift in Sources */,
 				09B212342431736500EA9F7D /* DetailViewController.swift in Sources */,
+				09B2124024317A1600EA9F7D /* TeamGearV_2.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +378,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		09B2123E24317A1600EA9F7D /* TeamGearV_2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				09B2123F24317A1600EA9F7D /* TeamGearV_2.xcdatamodel */,
+			);
+			currentVersion = 09B2123F24317A1600EA9F7D /* TeamGearV_2.xcdatamodel */;
+			path = TeamGearV_2.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 09B212112431727B00EA9F7D /* Project object */;
 }
