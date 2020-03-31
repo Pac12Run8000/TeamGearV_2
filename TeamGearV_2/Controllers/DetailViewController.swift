@@ -30,6 +30,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
 
         txtLoanOutlet.delegate = self
         txtReturnOutlet.delegate = self
@@ -52,7 +53,9 @@ class DetailViewController: UIViewController {
         } 
     }
     
-
+    @IBAction func btnSaveAction(_ sender: Any) {
+    }
+    
 }
 
 // MARK:- DatePicker functionality
@@ -96,6 +99,58 @@ extension DetailViewController:UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    
+}
+
+// MARK:- AlertController for field validation
+extension DetailViewController {
+    
+    func presentLoginError(title:String, msg:String) {
+        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+// MARK:- UILabel Animation functionality
+extension DetailViewController {
+    
+    func animateNoTheatresInRadiusFadeInFadeOut(label:UILabel, message:String) {
+        DispatchQueue.main.async {
+            label.text = message
+            
+        }
+//        fadeInFadeOut(label: labelOutlet)
+    }
+    
+    func animateNumberOfTheatresLabelFadeInFadeOut(label:UILabel, count:Int) {
+        DispatchQueue.main.async {
+            label.text = "\(count) theatres within radius.\nClick theatre list to see ..."
+             
+        }
+//        fadeInFadeOut(label: labelOutlet)
+    }
+    
+    
+    
+    func fadeInFadeOut(label:UILabel) {
+        DispatchQueue.main.async {
+            if (label.alpha == 0.0) {
+                UIView.animate(withDuration: 1.0, delay: 0.2, options: .curveEaseOut, animations: {
+                    label.alpha = 1.0
+                }) { (success) in
+                    if (success) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                            UIView.animate(withDuration: 1.0, delay: 0.2, options: .curveEaseOut, animations: {
+                                label.alpha = 0.0
+                            }, completion: nil)
+                        })
+                    }
+                }
+            }
+        }
+    }
     
 }
 
