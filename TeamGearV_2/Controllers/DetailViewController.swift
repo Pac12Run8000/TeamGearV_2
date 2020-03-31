@@ -11,6 +11,8 @@ import CoreData
 
 class DetailViewController: UIViewController {
     
+    
+    var imageState:ImageState?
     lazy var managedObjectContext:NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext)!
     
     var variableTextField:UITextField!
@@ -127,7 +129,7 @@ extension DetailViewController {
     }
     
     @objc func presentItemActionSheet() {
-        
+        imageState = .item
         let imagePickerController = setImagePickerDelegate()
         
         let actionSheet = UIAlertController(title: "Image input", message: "Select an image for the item that you are loaning out.", preferredStyle: .actionSheet)
@@ -240,10 +242,15 @@ extension DetailViewController:UIImagePickerControllerDelegate, UINavigationCont
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage, let scaledImage = UIImage.scaleImage(image: editedImage, toWidth: 120, andHeight: 120) {
-            self.itemImage.image = scaledImage
-        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let scaledImage = UIImage.scaleImage(image: originalImage, toWidth: 120, andHeight: 120) {
-            self.itemImage.image = scaledImage
+        switch imageState {
+        case .item:
+            if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage, let scaledImage = UIImage.scaleImage(image: editedImage, toWidth: 120, andHeight: 120) {
+                self.itemImage.image = scaledImage
+            } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let scaledImage = UIImage.scaleImage(image: originalImage, toWidth: 120, andHeight: 120) {
+                self.itemImage.image = scaledImage
+            }
+        default:
+            print("Do nothing.")
         }
         self.dismiss(animated: true, completion: nil)
     }

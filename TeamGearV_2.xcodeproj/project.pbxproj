@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		097054C62432F39A00E9E635 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097054C52432F39A00E9E635 /* UIImage+Scale.swift */; };
+		097054C82433D0E500E9E635 /* ImageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097054C72433D0E500E9E635 /* ImageState.swift */; };
 		09B2121D2431727B00EA9F7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2121C2431727B00EA9F7D /* AppDelegate.swift */; };
 		09B2121F2431727B00EA9F7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2121E2431727B00EA9F7D /* SceneDelegate.swift */; };
 		09B212242431727B00EA9F7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09B212222431727B00EA9F7D /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		097054C52432F39A00E9E635 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
+		097054C72433D0E500E9E635 /* ImageState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageState.swift; sourceTree = "<group>"; };
 		09B212192431727B00EA9F7D /* TeamGearV_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamGearV_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B2121C2431727B00EA9F7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09B2121E2431727B00EA9F7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				09B212382431772800EA9F7D /* ItemState.swift */,
+				097054C72433D0E500E9E635 /* ImageState.swift */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				09B2121F2431727B00EA9F7D /* SceneDelegate.swift in Sources */,
 				09B212342431736500EA9F7D /* DetailViewController.swift in Sources */,
 				09B2124024317A1600EA9F7D /* TeamGearV_2.xcdatamodeld in Sources */,
+				097054C82433D0E500E9E635 /* ImageState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
