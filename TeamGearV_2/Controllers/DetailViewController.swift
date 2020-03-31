@@ -23,13 +23,12 @@ class DetailViewController: UIViewController {
         }
     }
     
+    
+    @IBOutlet weak var personImage: UIImageView!
+    @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var numberOfItemsLblOutlet: UILabel!
     @IBOutlet weak var txtLoanOutlet: UITextField!
     @IBOutlet weak var txtReturnOutlet: UITextField!
-    
-    @IBOutlet weak var lblAddItemImageOutlet: UILabel!
-    
-    @IBOutlet weak var lblAddPersonImageOutlet: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +57,8 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func btnSaveAction(_ sender: Any) {
+        
+        saveItemAndPersonData()
     }
     
 }
@@ -120,21 +121,6 @@ extension DetailViewController {
 // MARK:- UILabel Animation functionality
 extension DetailViewController {
     
-    func animateNoTheatresInRadiusFadeInFadeOut(label:UILabel, message:String) {
-        DispatchQueue.main.async {
-            label.text = message
-            
-        }
-//        fadeInFadeOut(label: labelOutlet)
-    }
-    
-    func animateNumberOfTheatresLabelFadeInFadeOut(label:UILabel, count:Int) {
-        DispatchQueue.main.async {
-            label.text = "\(count) theatres within radius.\nClick theatre list to see ..."
-             
-        }
-//        fadeInFadeOut(label: labelOutlet)
-    }
     
     
     
@@ -155,6 +141,33 @@ extension DetailViewController {
             }
         }
     }
+    
+}
+
+
+// MARK:- Controller validation
+extension DetailViewController {
+    
+    func saveItemAndPersonData() {
+        
+        guard validateItemImage() else {
+            presentLoginError(title: "INPUT ERROR", msg: "Select an image for the item.")
+            
+            return
+        }
+        
+        print("Saved!!!!")
+    }
+    
+    
+    
+    func validateItemImage() -> Bool {
+        if itemImage.image == nil {
+            return false
+        }
+        return true
+    }
+    
     
 }
 
