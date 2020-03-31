@@ -36,7 +36,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         addGesturecognizerForItemImageView()
-        
+        addGestureRecognizerForPersonImageView()
 
         txtLoanOutlet.delegate = self
         txtReturnOutlet.delegate = self
@@ -81,8 +81,6 @@ extension DetailViewController {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        
-        
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonPressed))
         toolbar.setItems([doneButton], animated: true)
         variableTextField.inputAccessoryView = toolbar
@@ -126,6 +124,37 @@ extension DetailViewController {
         let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
         alertController.addAction(action)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func presentPersonActionSheet() {
+        imageState = .person
+        
+        print("Working!!!!!")
+        let imagePickerController = setImagePickerDelegate()
+
+        let actionSheet = UIAlertController(title: "Image input", message: "Enter an image for the person who is borrowing the item.", preferredStyle: .actionSheet)
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            } else {
+                self.presentLoginError(title: "Camera no available" , msg: "The camera isn't available on this device.")
+            }
+        }
+        let clearAction = UIAlertAction(title: "Clear", style: .default) { (action) in
+            self.personImage.image = nil
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        actionSheet.addAction(libraryAction)
+        actionSheet.addAction(cameraAction)
+        actionSheet.addAction(clearAction)
+        actionSheet.addAction(cancelAction)
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     @objc func presentItemActionSheet() {
@@ -214,25 +243,20 @@ extension DetailViewController {
 // MARK:- ImageView action and gesturerecognizer functionality
 extension DetailViewController {
     
-    func returnUIImageView(tag:Int) -> UIImageView? {
-        switch tag {
-        case 1:
-            return itemImage
-        case 2:
-            return personImage
-        default:
-            print("Do nothing.")
-        }
-        return nil
-    }
-    
     func addGesturecognizerForItemImageView() {
-        
-        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentItemActionSheet))
         itemImage.isUserInteractionEnabled = true
         itemImage.addGestureRecognizer(tapGestureRecognizer)
-
+        
+       
+    }
+    
+    func addGestureRecognizerForPersonImageView() {
+        let tapGestureRecog = UITapGestureRecognizer(target: self, action: #selector(presentPersonActionSheet))
+        personImage.isUserInteractionEnabled = true
+        personImage.addGestureRecognizer(tapGestureRecog)
+        
+         
     }
 }
 
@@ -248,6 +272,12 @@ extension DetailViewController:UIImagePickerControllerDelegate, UINavigationCont
                 self.itemImage.image = scaledImage
             } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let scaledImage = UIImage.scaleImage(image: originalImage, toWidth: 120, andHeight: 120) {
                 self.itemImage.image = scaledImage
+            }
+        case .person:
+            if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage, let scaledImage = UIImage.scaleImage(image: editedImage, toWidth: 120, andHeight: 120) {
+                self.personImage.image = scaledImage
+            } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let scaledImage = UIImage.scaleImage(image: originalImage, toWidth: 120, andHeight: 120) {
+                self.personImage.image = scaledImage
             }
         default:
             print("Do nothing.")
