@@ -227,11 +227,25 @@ extension DetailViewController {
         
         guard validateItemName() else {
             presentLoginError(title: "INPUT ERROR", msg: "Enter a valid item name.")
-            
             return
         }
         
+        guard validateLoanDateTextField() else {
+            presentLoginError(title: "IMPUT ERROR", msg: "Select a valid date.")
+            return
+        }
+        
+        
+        
         print("Saved!!!!")
+    }
+    
+    func validateLoanDateTextField() -> Bool {
+        if txtLoanOutlet.text == "" || txtLoanOutlet.text!.isEmpty {
+            txtLoanOutlet.becomeFirstResponder()
+            return false
+        }
+        return true
     }
     
     
@@ -245,6 +259,7 @@ extension DetailViewController {
     
     func validateItemImage() -> Bool {
         if itemImage.image == nil {
+            itemImage.becomeFirstResponder()
             return false
         }
         return true
