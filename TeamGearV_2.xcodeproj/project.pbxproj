@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		097054C62432F39A00E9E635 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097054C52432F39A00E9E635 /* UIImage+Scale.swift */; };
 		09B2121D2431727B00EA9F7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2121C2431727B00EA9F7D /* AppDelegate.swift */; };
 		09B2121F2431727B00EA9F7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2121E2431727B00EA9F7D /* SceneDelegate.swift */; };
 		09B212242431727B00EA9F7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09B212222431727B00EA9F7D /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		097054C52432F39A00E9E635 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
 		09B212192431727B00EA9F7D /* TeamGearV_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamGearV_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B2121C2431727B00EA9F7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09B2121E2431727B00EA9F7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		097054C42432F36300E9E635 /* Convenience */ = {
+			isa = PBXGroup;
+			children = (
+				097054C52432F39A00E9E635 /* UIImage+Scale.swift */,
+			);
+			path = Convenience;
+			sourceTree = "<group>";
+		};
 		09B212102431727B00EA9F7D = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		09B2121B2431727B00EA9F7D /* TeamGearV_2 */ = {
 			isa = PBXGroup;
 			children = (
+				097054C42432F36300E9E635 /* Convenience */,
 				09B2123A2431791F00EA9F7D /* Model */,
 				09B21235243176E100EA9F7D /* Enumerations */,
 				09B21230243172CB00EA9F7D /* Controllers */,
@@ -176,6 +187,7 @@
 			files = (
 				09B2124224317C1500EA9F7D /* CoreDataStack.swift in Sources */,
 				09B21232243172F000EA9F7D /* MainViewController.swift in Sources */,
+				097054C62432F39A00E9E635 /* UIImage+Scale.swift in Sources */,
 				09B2121D2431727B00EA9F7D /* AppDelegate.swift in Sources */,
 				09B212392431772800EA9F7D /* ItemState.swift in Sources */,
 				09B2121F2431727B00EA9F7D /* SceneDelegate.swift in Sources */,

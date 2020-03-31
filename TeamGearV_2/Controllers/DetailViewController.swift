@@ -12,7 +12,7 @@ import CoreData
 class DetailViewController: UIViewController {
     
     lazy var managedObjectContext:NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext)!
-    
+    var variableImageView:UIImageView!
     var variableTextField:UITextField!
     let datePicker = UIDatePicker()
     var itemState:ItemState?
@@ -126,15 +126,25 @@ extension DetailViewController {
     }
     
     @objc func presentItemActionSheet() {
+        
+        let imagePickerController = setImagePickerDelegate()
+        
         let actionSheet = UIAlertController(title: "Image input", message: "Select an image for the item that you are loaning out.", preferredStyle: .actionSheet)
         let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
-            
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
         }
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            } else {
+                self.presentLoginError(title: "Camera no available" , msg: "The camera isn't available on this device.")
+            }
             
         }
         let clearAction = UIAlertAction(title: "Clear", style: .default) { (action) in
-            
+            self.variableImageView.image = nil
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
@@ -201,10 +211,48 @@ extension DetailViewController {
 // MARK:- ImageView action and gesturerecognizer functionality
 extension DetailViewController {
     
+    func returnUIImageView(tag:Int) -> UIImageView? {
+        switch tag {
+        case 1:
+            return itemImage
+        case 2:
+            return personImage
+        default:
+            print("Do nothing.")
+        }
+        return nil
+    }
+    
     func addGesturecognizerForItemImageView(imageView:UIImageView) {
+        variableImageView = imageView
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentItemActionSheet))
-        imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(tapGestureRecognizer)
+        variableImageView.isUserInteractionEnabled = true
+        variableImageView.addGestureRecognizer(tapGestureRecognizer)
+
+    }
+}
+
+
+// MARK:- This is the imagepickerController functionality
+extension DetailViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage, let scaledImage = UIImage.scaleImage(image: editedImage, toWidth: 120, andHeight: 120) {
+            self.variableImageView.image = scaledImage
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let scaledImage = UIImage.scaleImage(image: originalImage, toWidth: 120, andHeight: 120) {
+            self.variableImageView.image = scaledImage
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setImagePickerDelegate() -> UIImagePickerController {
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        return imagePickerController
     }
 }
 
