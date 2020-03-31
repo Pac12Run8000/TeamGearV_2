@@ -33,10 +33,12 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        addGesturecognizerForItemImageView(imageView: itemImage)
 
         txtLoanOutlet.delegate = self
         txtReturnOutlet.delegate = self
+        
+        
         
         if itemState == .add {
            let borrowedItem = BorrowedItem(context: managedObjectContext)
@@ -46,6 +48,10 @@ class DetailViewController: UIViewController {
         } else if itemState == .edit {
            
         }
+    }
+    
+    @objc func startitUp() {
+        print("fuck it bro!!!")
     }
     
 
@@ -60,6 +66,8 @@ class DetailViewController: UIViewController {
         
         saveItemAndPersonData()
     }
+    
+    
     
 }
 
@@ -116,6 +124,26 @@ extension DetailViewController {
         alertController.addAction(action)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    @objc func presentItemActionSheet() {
+        let actionSheet = UIAlertController(title: "Image input", message: "Select an image for the item that you are loaning out.", preferredStyle: .actionSheet)
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+            
+        }
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+            
+        }
+        let clearAction = UIAlertAction(title: "Clear", style: .default) { (action) in
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        actionSheet.addAction(libraryAction)
+        actionSheet.addAction(cameraAction)
+        actionSheet.addAction(clearAction)
+        actionSheet.addAction(cancelAction)
+        self.present(actionSheet, animated: true, completion: nil)
+    }
 }
 
 // MARK:- UILabel Animation functionality
@@ -152,7 +180,6 @@ extension DetailViewController {
         
         guard validateItemImage() else {
             presentLoginError(title: "INPUT ERROR", msg: "Select an image for the item.")
-            
             return
         }
         
@@ -169,6 +196,16 @@ extension DetailViewController {
     }
     
     
+}
+
+// MARK:- ImageView action and gesturerecognizer functionality
+extension DetailViewController {
+    
+    func addGesturecognizerForItemImageView(imageView:UIImageView) {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentItemActionSheet))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+    }
 }
 
 
