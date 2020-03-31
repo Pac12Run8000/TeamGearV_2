@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
         }
     }
     
-    
+    @IBOutlet weak var nameOfItemLabelOutlet: UITextField!
     @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var numberOfItemsLblOutlet: UILabel!
@@ -225,10 +225,23 @@ extension DetailViewController {
             return
         }
         
+        guard validateItemName() else {
+            presentLoginError(title: "INPUT ERROR", msg: "Enter a valid item name.")
+            
+            return
+        }
+        
         print("Saved!!!!")
     }
     
     
+    func validateItemName() -> Bool {
+        if nameOfItemLabelOutlet.text == "" || nameOfItemLabelOutlet.text!.isEmpty {
+            nameOfItemLabelOutlet.becomeFirstResponder()
+            return false
+        }
+        return true
+    }
     
     func validateItemImage() -> Bool {
         if itemImage.image == nil {
