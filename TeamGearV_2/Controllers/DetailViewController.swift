@@ -27,10 +27,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var txtLoanOutlet: UITextField!
     @IBOutlet weak var txtReturnOutlet: UITextField!
     
+    @IBOutlet weak var lblAddItemImageOutlet: UILabel!
+    
+    @IBOutlet weak var lblAddPersonImageOutlet: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+       
 
         txtLoanOutlet.delegate = self
         txtReturnOutlet.delegate = self
