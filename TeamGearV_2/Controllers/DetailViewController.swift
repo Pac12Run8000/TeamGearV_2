@@ -12,7 +12,7 @@ import CoreData
 class DetailViewController: UIViewController {
     
     lazy var managedObjectContext:NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext)!
-    var variableImageView:UIImageView!
+    
     var variableTextField:UITextField!
     let datePicker = UIDatePicker()
     var itemState:ItemState?
@@ -33,7 +33,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addGesturecognizerForItemImageView(imageView: itemImage)
+        addGesturecognizerForItemImageView()
+        
 
         txtLoanOutlet.delegate = self
         txtReturnOutlet.delegate = self
@@ -144,7 +145,7 @@ extension DetailViewController {
             
         }
         let clearAction = UIAlertAction(title: "Clear", style: .default) { (action) in
-            self.variableImageView.image = nil
+            self.itemImage.image = nil
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
@@ -223,12 +224,12 @@ extension DetailViewController {
         return nil
     }
     
-    func addGesturecognizerForItemImageView(imageView:UIImageView) {
-        variableImageView = imageView
+    func addGesturecognizerForItemImageView() {
+        
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentItemActionSheet))
-        variableImageView.isUserInteractionEnabled = true
-        variableImageView.addGestureRecognizer(tapGestureRecognizer)
+        itemImage.isUserInteractionEnabled = true
+        itemImage.addGestureRecognizer(tapGestureRecognizer)
 
     }
 }
@@ -240,9 +241,9 @@ extension DetailViewController:UIImagePickerControllerDelegate, UINavigationCont
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage, let scaledImage = UIImage.scaleImage(image: editedImage, toWidth: 120, andHeight: 120) {
-            self.variableImageView.image = scaledImage
+            self.itemImage.image = scaledImage
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let scaledImage = UIImage.scaleImage(image: originalImage, toWidth: 120, andHeight: 120) {
-            self.variableImageView.image = scaledImage
+            self.itemImage.image = scaledImage
         }
         self.dismiss(animated: true, completion: nil)
     }
