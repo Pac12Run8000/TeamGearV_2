@@ -147,6 +147,16 @@
                                     <constraint firstAttribute="height" constant="4" id="ztL-S2-4z9"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your information was saved. Click the &quot;Back&quot; button." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIA-wp-cx4">
+                                <rect key="frame" x="150" y="407" width="244" height="100"/>
+                                <color key="backgroundColor" red="0.37254901959999998" green="0.7725490196" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="6wZ-a9-dla"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -154,14 +164,17 @@
                             <constraint firstItem="rIk-uc-45s" firstAttribute="leading" secondItem="cKO-RM-m37" secondAttribute="trailing" constant="10" id="3MB-WX-KlH"/>
                             <constraint firstItem="rIk-uc-45s" firstAttribute="top" secondItem="JSY-bF-vuT" secondAttribute="bottom" constant="40" id="E85-yM-HtH"/>
                             <constraint firstItem="tLQ-RL-s7i" firstAttribute="leading" secondItem="Ifx-Ly-NQh" secondAttribute="trailing" constant="10" id="GKK-7M-DWp"/>
+                            <constraint firstItem="wIA-wp-cx4" firstAttribute="leading" secondItem="cKO-RM-m37" secondAttribute="trailing" constant="10" id="Gkc-Z8-vub"/>
                             <constraint firstItem="tLQ-RL-s7i" firstAttribute="top" secondItem="iT6-y8-dgU" secondAttribute="top" constant="20" id="KC1-07-Eko"/>
                             <constraint firstItem="cKO-RM-m37" firstAttribute="leading" secondItem="iT6-y8-dgU" secondAttribute="leading" constant="20" id="Ln0-Ef-Vyt"/>
                             <constraint firstItem="KxQ-lo-jzY" firstAttribute="leading" secondItem="iT6-y8-dgU" secondAttribute="leading" id="OFk-wI-vdr"/>
+                            <constraint firstItem="wIA-wp-cx4" firstAttribute="top" secondItem="rIk-uc-45s" secondAttribute="bottom" constant="15" id="OeG-C8-bUi"/>
                             <constraint firstItem="Ifx-Ly-NQh" firstAttribute="top" secondItem="iT6-y8-dgU" secondAttribute="top" constant="20" id="PE4-1y-14y"/>
                             <constraint firstItem="Ifx-Ly-NQh" firstAttribute="leading" secondItem="iT6-y8-dgU" secondAttribute="leading" constant="20" id="SmI-LU-JtC"/>
                             <constraint firstItem="JSY-bF-vuT" firstAttribute="top" secondItem="WY4-yu-KCu" secondAttribute="bottom" constant="10" id="SrO-ct-A8Y"/>
                             <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="rIk-uc-45s" secondAttribute="trailing" constant="20" id="TxZ-fj-1ll"/>
                             <constraint firstItem="cKO-RM-m37" firstAttribute="top" secondItem="JSY-bF-vuT" secondAttribute="bottom" constant="40" id="USk-LO-T4f"/>
+                            <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="wIA-wp-cx4" secondAttribute="trailing" constant="20" id="V5f-WE-gdv"/>
                             <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="tLQ-RL-s7i" secondAttribute="trailing" constant="20" id="XRB-Fw-b0p"/>
                             <constraint firstItem="qA0-8O-D6a" firstAttribute="top" secondItem="tLQ-RL-s7i" secondAttribute="bottom" constant="10" id="bap-93-vkj"/>
                             <constraint firstItem="WY4-yu-KCu" firstAttribute="leading" secondItem="iT6-y8-dgU" secondAttribute="leading" constant="20" id="bbb-i4-AqU"/>
@@ -185,6 +198,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="isSavedMessageLabel" destination="wIA-wp-cx4" id="TF2-GQ-ucy"/>
                         <outlet property="itemImage" destination="Ifx-Ly-NQh" id="DVS-K5-YHU"/>
                         <outlet property="nameOfBorrowerLabelOutlet" destination="rIk-uc-45s" id="eqg-mV-ybj"/>
                         <outlet property="nameOfItemLabelOutlet" destination="tLQ-RL-s7i" id="Xja-sU-9lv"/>

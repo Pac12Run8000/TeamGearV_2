@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var isSavedMessageLabel: UILabel!
     @IBOutlet weak var saveButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var nameOfBorrowerLabelOutlet: UITextField!
     @IBOutlet weak var nameOfItemLabelOutlet: UITextField!
@@ -47,6 +48,10 @@ class DetailViewController: UIViewController {
         txtReturnOutlet.delegate = self
         
         
+        isSavedMessageLabel.layer.masksToBounds = true
+        isSavedMessageLabel.layer.cornerRadius = 3
+        isSavedMessageLabel.layer.borderWidth = 1
+        isSavedMessageLabel.alpha = 0.0
         
         
     }
@@ -409,14 +414,14 @@ extension DetailViewController {
         person.name = nameOfBorrowerLabelOutlet.text
         person.addToBorrowedItems(borrowedItem)
         
-        saveButtonOutlet.isEnabled = false
-        
-//        do {
-//         try CoreDataStack.saveContext(context: managedObjectContext)
-//         print("Save succeeded!")
-//        } catch {
-//            print("There was an error:\(error.localizedDescription)")
-//        }
+        do {
+         try CoreDataStack.saveContext(context: managedObjectContext)
+            saveButtonOutlet.isEnabled = false
+            fadeInFadeOut(label: isSavedMessageLabel)
+            print("Save succeeded!")
+        } catch {
+            print("There was an error:\(error.localizedDescription)")
+        }
         
         
     }
