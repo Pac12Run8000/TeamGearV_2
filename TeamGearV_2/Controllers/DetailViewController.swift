@@ -16,7 +16,8 @@ class DetailViewController: UIViewController {
     lazy var managedObjectContext:NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext)!
     
     
-
+    var loanDate:Date?
+    var returnDate:Date?
     var variableTextField:UITextField!
     let datePicker = UIDatePicker()
     var itemState:ItemState?
@@ -95,7 +96,15 @@ extension DetailViewController {
         let dateformatter = returnDateFormatter()
         
         let formattedDate = dateformatter.string(from: datePicker.date)
-        variableTextField.text = "\(formattedDate)"
+        
+        if (variableTextField == txtLoanOutlet) {
+            loanDate = datePicker.date
+            variableTextField.text = "date loaned: \(formattedDate)"
+        } else if (variableTextField == txtReturnOutlet) {
+            returnDate = datePicker.date
+            variableTextField.text = "date of return: \(formattedDate)"
+        }
+        
         
         self.view.endEditing(true)
         
