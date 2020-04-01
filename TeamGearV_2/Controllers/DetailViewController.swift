@@ -15,6 +15,8 @@ class DetailViewController: UIViewController {
     var imageState:ImageState?
     lazy var managedObjectContext:NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext)!
     
+    
+
     var variableTextField:UITextField!
     let datePicker = UIDatePicker()
     var itemState:ItemState?
@@ -91,14 +93,9 @@ extension DetailViewController {
     @objc func doneButtonPressed() {
 
         let dateformatter = returnDateFormatter()
+        
         let formattedDate = dateformatter.string(from: datePicker.date)
         variableTextField.text = "\(formattedDate)"
-        
-//        if let canConvertToDate = dateformatter.date(from: variableTextField.text!) {
-//            print("It could convert!")
-//        } else {
-//            print("Conversion failed!")
-//        }
         
         self.view.endEditing(true)
         
@@ -321,6 +318,9 @@ extension DetailViewController {
     }
     
     
+    
+    
+   
 }
 
 // MARK:- ImageView action and gesturerecognizer functionality
