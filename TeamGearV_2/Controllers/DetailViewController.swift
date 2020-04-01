@@ -250,13 +250,13 @@ extension DetailViewController {
             return
         }
         
-        guard validateStartDateForLoan() else {
-            presentLoginError(title: "IMPUT ERROR", msg: "Enter a valid date for start date.")
+        guard validateTheDateItemIsBorrowed() else {
+            presentLoginError(title: "INPUT ERROR", msg: "You have not properly selected a date the item is being borrowed. First, tap the date textfield and a date picker should appear. Select a date and press done.")
             return
         }
         
-        guard validateEndDateForLoan() else {
-            presentLoginError(title: "INPUT ERROR", msg: "Enter a valid date for end date.")
+        guard validateDateItemIsReturned() else {
+            presentLoginError(title: "INPUT ERROR", msg: "You have not properly selected a date the item is being borrowed. First, tap the date textfield and a date picker should appear. Select a date and press done.")
             return
         }
         
@@ -272,7 +272,25 @@ extension DetailViewController {
         
         
         
+        
+        
         print("Saved!!!!")
+    }
+    
+    func validateDateItemIsReturned() -> Bool {
+        guard returnDate != nil else {
+            txtReturnOutlet.becomeFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    func validateTheDateItemIsBorrowed() -> Bool {
+        guard loanDate != nil else {
+            txtLoanOutlet.becomeFirstResponder()
+            return false
+        }
+        return true
     }
     
     
@@ -291,24 +309,6 @@ extension DetailViewController {
         }
         return true
     }
-    
-    
-    func validateEndDateForLoan() -> Bool {
-        if txtReturnOutlet.text == "" || txtReturnOutlet.text!.isEmpty {
-            txtReturnOutlet.becomeFirstResponder()
-            return false
-        }
-        return true
-    }
-    
-    func validateStartDateForLoan() -> Bool {
-        if txtLoanOutlet.text == "" || txtLoanOutlet.text!.isEmpty {
-            txtLoanOutlet.becomeFirstResponder()
-            return false
-        }
-        return true
-    }
-    
     
     func validateItemName() -> Bool {
         if nameOfItemLabelOutlet.text == "" || nameOfItemLabelOutlet.text!.isEmpty {
