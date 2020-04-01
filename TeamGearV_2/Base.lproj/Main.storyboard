@@ -186,6 +186,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="itemImage" destination="Ifx-Ly-NQh" id="DVS-K5-YHU"/>
+                        <outlet property="nameOfBorrowerLabelOutlet" destination="rIk-uc-45s" id="eqg-mV-ybj"/>
                         <outlet property="nameOfItemLabelOutlet" destination="tLQ-RL-s7i" id="Xja-sU-9lv"/>
                         <outlet property="numberOfItemsLblOutlet" destination="LWY-Wj-Eue" id="Slh-ib-CQx"/>
                         <outlet property="personImage" destination="cKO-RM-m37" id="ctk-BQ-bf0"/>

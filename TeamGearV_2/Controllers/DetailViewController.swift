@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var nameOfBorrowerLabelOutlet: UITextField!
     @IBOutlet weak var nameOfItemLabelOutlet: UITextField!
     @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var itemImage: UIImageView!
@@ -88,12 +89,25 @@ extension DetailViewController {
     }
     
     @objc func doneButtonPressed() {
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "MMM d, h:mm a"
+
+        let dateformatter = returnDateFormatter()
         let formattedDate = dateformatter.string(from: datePicker.date)
-        variableTextField.text = "date borrowed: \(formattedDate)"
+        variableTextField.text = "\(formattedDate)"
+        
+//        if let canConvertToDate = dateformatter.date(from: variableTextField.text!) {
+//            print("It could convert!")
+//        } else {
+//            print("Conversion failed!")
+//        }
+        
         self.view.endEditing(true)
         
+    }
+    
+    func returnDateFormatter() -> DateFormatter {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MMM d, h:mm a"
+        return dateformatter
     }
     
 }
@@ -215,7 +229,7 @@ extension DetailViewController {
 }
 
 
-// MARK:- Controller validation
+// MARK:--- Field Validation Functionality ---
 extension DetailViewController {
     
     func saveItemAndPersonData() {
@@ -230,8 +244,23 @@ extension DetailViewController {
             return
         }
         
-        guard validateLoanDateTextField() else {
-            presentLoginError(title: "IMPUT ERROR", msg: "Select a valid date.")
+        guard validateStartDateForLoan() else {
+            presentLoginError(title: "IMPUT ERROR", msg: "Enter a valid date for start date.")
+            return
+        }
+        
+        guard validateEndDateForLoan() else {
+            presentLoginError(title: "INPUT ERROR", msg: "Enter a valid date for end date.")
+            return
+        }
+        
+        guard validatePersonImageView() else {
+            presentLoginError(title: "INPUT ERROR", msg: "Select an image for a person who is borrowing the item.")
+            return
+        }
+        
+        guard validatePersonName() else {
+            presentLoginError(title: "INPUT ERROR", msg: "Enter a valid name for a user.")
             return
         }
         
@@ -240,7 +269,33 @@ extension DetailViewController {
         print("Saved!!!!")
     }
     
-    func validateLoanDateTextField() -> Bool {
+    
+    func validatePersonName() -> Bool {
+        if nameOfBorrowerLabelOutlet.text == "" || nameOfBorrowerLabelOutlet.text!.isEmpty {
+            nameOfBorrowerLabelOutlet.becomeFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    func validatePersonImageView() -> Bool {
+        if personImage.image == nil {
+            personImage.becomeFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    
+    func validateEndDateForLoan() -> Bool {
+        if txtReturnOutlet.text == "" || txtReturnOutlet.text!.isEmpty {
+            txtReturnOutlet.becomeFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    func validateStartDateForLoan() -> Bool {
         if txtLoanOutlet.text == "" || txtLoanOutlet.text!.isEmpty {
             txtLoanOutlet.becomeFirstResponder()
             return false
