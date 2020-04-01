@@ -27,6 +27,8 @@ class MainViewController: UIViewController {
         
         setupTableViewDelegates()
         
+                
+        
 
        
     }
@@ -100,7 +102,7 @@ extension MainViewController:UITableViewDelegate, UITableViewDataSource {
 
 
         // Reading from CoreData
-//        let borrowedItemRequest:NSFetchRequest<BorrowedItem> = BorrowedItem.fetchRequest()
+//let borrowedItemRequest:NSFetchRequest<BorrowedItem> = BorrowedItem.fetchRequest()
 //        borrowedItemRequest.returnsObjectsAsFaults = false
 //
 //        var borrowedItemsArray = [BorrowedItem]()
@@ -112,7 +114,7 @@ extension MainViewController:UITableViewDelegate, UITableViewDataSource {
 //        }
 //
 //        for item in borrowedItemsArray {
-//            print("item:\(item.title)", "number of items:\(item.numberOfItems)")
+//            print("item:\(item.title)", "number of items:\(item.numberOfItems)", "startDate:\(item.startDate)", "endDate:\(item.endDate)", "person:\(item.person?.name)")
 //        }
     
         

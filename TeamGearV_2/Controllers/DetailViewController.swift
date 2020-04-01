@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var saveButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var nameOfBorrowerLabelOutlet: UITextField!
     @IBOutlet weak var nameOfItemLabelOutlet: UITextField!
     @IBOutlet weak var personImage: UIImageView!
@@ -47,14 +48,7 @@ class DetailViewController: UIViewController {
         
         
         
-        if itemState == .add {
-           let borrowedItem = BorrowedItem(context: managedObjectContext)
-            
-            
-            
-        } else if itemState == .edit {
-           
-        }
+        
     }
     
     @objc func startitUp() {
@@ -70,8 +64,9 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func btnSaveAction(_ sender: Any) {
-        
         saveItemAndPersonData()
+        
+        
     }
     
     
@@ -271,10 +266,15 @@ extension DetailViewController {
         }
         
         
+        if itemState == .add {
+            print("I'm adding")
+            saveToCoreData()
+        } else if itemState == .edit {
+           print("I'm editing")
+        }
         
         
         
-        print("Saved!!!!")
     }
     
     func validateDateItemIsReturned() -> Bool {
@@ -384,6 +384,47 @@ extension DetailViewController:UIImagePickerControllerDelegate, UINavigationCont
         imagePickerController.allowsEditing = true
         return imagePickerController
     }
+}
+
+
+// MARK:- CoreData functionality
+extension DetailViewController {
+    
+    func saveToCoreData() {
+        let borrowedItem = BorrowedItem(context: managedObjectContext)
+        if let data = itemImage.image?.jpegData(compressionQuality: 0.3) {
+            borrowedItem.image = data
+        }
+        borrowedItem.title = nameOfItemLabelOutlet.text
+        borrowedItem.startDate = loanDate
+        borrowedItem.endDate = returnDate
+        if let itemCount = itemCount {
+            borrowedItem.numberOfItems = itemCount
+        }
+       
+        let person = Person(context: managedObjectContext)
+        if let data = personImage.image?.jpegData(compressionQuality: 0.3) {
+            person.image = data
+        }
+        person.name = nameOfBorrowerLabelOutlet.text
+        person.addToBorrowedItems(borrowedItem)
+        
+        saveButtonOutlet.isEnabled = false
+        
+//        do {
+//         try CoreDataStack.saveContext(context: managedObjectContext)
+//         print("Save succeeded!")
+//        } catch {
+//            print("There was an error:\(error.localizedDescription)")
+//        }
+        
+        
+    }
+    
+    func updateToCoredata() {
+        
+    }
+    
 }
 
 

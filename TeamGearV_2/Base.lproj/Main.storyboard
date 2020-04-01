@@ -190,6 +190,7 @@
                         <outlet property="nameOfItemLabelOutlet" destination="tLQ-RL-s7i" id="Xja-sU-9lv"/>
                         <outlet property="numberOfItemsLblOutlet" destination="LWY-Wj-Eue" id="Slh-ib-CQx"/>
                         <outlet property="personImage" destination="cKO-RM-m37" id="ctk-BQ-bf0"/>
+                        <outlet property="saveButtonOutlet" destination="coX-HT-jwW" id="Wfg-vZ-dDE"/>
                         <outlet property="txtLoanOutlet" destination="WY4-yu-KCu" id="avH-Iq-QrM"/>
                         <outlet property="txtReturnOutlet" destination="JSY-bF-vuT" id="0Ef-3c-9jU"/>
                     </connections>
