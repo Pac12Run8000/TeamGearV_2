@@ -17,6 +17,8 @@ class DetailViewController: UIViewController {
         }
     }
     
+    
+    
     var imageState:ImageState?
     lazy var managedObjectContext:NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext)!
     
@@ -33,6 +35,8 @@ class DetailViewController: UIViewController {
         }
     }
     
+    
+    @IBOutlet weak var stepperOutlet: UIStepper!
     @IBOutlet weak var isSavedMessageLabel: UILabel!
     @IBOutlet weak var saveButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var nameOfBorrowerLabelOutlet: UITextField!
@@ -55,15 +59,7 @@ class DetailViewController: UIViewController {
         
         messageLabelUI()
         
-        if let detailItem = detailItem {
-            
-            if let data = detailItem.image {
-                itemImage.image = UIImage(data: data)
-            }
-            nameOfItemLabelOutlet.text = detailItem.title
-            
-            
-        }
+        populateFieldsForUpdate()
         
         
     
@@ -458,6 +454,27 @@ extension DetailViewController {
         isSavedMessageLabel.layer.cornerRadius = 3
         isSavedMessageLabel.layer.borderWidth = 1
         isSavedMessageLabel.alpha = 0.0
+    }
+    
+    
+    func populateFieldsForUpdate() {
+        if let detailItem = detailItem {
+            
+            if let data = detailItem.image {
+                itemImage.image = UIImage(data: data)
+            }
+            nameOfItemLabelOutlet.text = detailItem.title
+            numberOfItemsLblOutlet.text = "number of items: \(detailItem.numberOfItems)"
+            stepperOutlet.isEnabled = false
+            txtLoanOutlet.text = "date loaned: \(Convenience.formatTheDate(date: detailItem.startDate as! NSDate))"
+            txtReturnOutlet.text = "date returned: \(Convenience.formatTheDate(date: detailItem.endDate as! NSDate))"
+            
+            let person = detailItem.person
+            if let data = person?.image {
+                personImage.image = UIImage(data: data)
+            }
+            nameOfBorrowerLabelOutlet.text = person?.name
+        }
     }
 }
 
