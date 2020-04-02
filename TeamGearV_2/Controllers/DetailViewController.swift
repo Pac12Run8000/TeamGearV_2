@@ -54,12 +54,19 @@ class DetailViewController: UIViewController {
         
         
         messageLabelUI()
-        if let data = detailItem!.image {
-            itemImage.image = UIImage(data: data)
+        
+        if let detailItem = detailItem {
+            
+            if let data = detailItem.image {
+                itemImage.image = UIImage(data: data)
+            }
+            nameOfItemLabelOutlet.text = detailItem.title
+            
+            
         }
-        nameOfItemLabelOutlet.text = detailItem?.title
         
         
+    
     }
     
     @objc func startitUp() {
@@ -68,10 +75,15 @@ class DetailViewController: UIViewController {
     
 
     @IBAction func stepperAction(_ sender: UIStepper) {
-        itemCount = Int16(sender.value)
-        if let itemCount = itemCount {
-            numberOfItemsLblOutlet.text = "number of items: \(itemCount)"
-        } 
+        
+            itemCount = Int16(sender.value)
+            if let itemCount = itemCount {
+                numberOfItemsLblOutlet.text = "number of items: \(itemCount)"
+            }
+            
+        
+      
+         
     }
     
     @IBAction func btnSaveAction(_ sender: Any) {
