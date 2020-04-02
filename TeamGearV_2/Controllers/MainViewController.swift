@@ -48,23 +48,23 @@ class MainViewController: UIViewController {
 
 
 // MARK:- Prepare for segue functionality
-extension MainViewController {
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "addSegue") {
-            let controller = segue.destination as? DetailViewController
-            
-            controller?.itemState = .add
-            
-        } else if (segue.identifier == "editSegue") {
-            let controller = segue.destination as? DetailViewController
-            
-            controller?.itemState = .edit
-        }
-    }
-    
-
-}
+//extension MainViewController {
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if (segue.identifier == "addSegue") {
+//            let controller = segue.destination as? DetailViewController
+//
+//            controller?.itemState = .add
+//
+//        } else if (segue.identifier == "editSegue") {
+//            let controller = segue.destination as? DetailViewController
+//
+//            controller?.itemState = .edit
+//        }
+//    }
+//
+//
+//}
 
 
 // MARK:- UITablelViewDelegate and Datasource functionality
@@ -100,12 +100,30 @@ extension MainViewController:UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "editItemSegue", sender: self)
+        performSegue(withIdentifier: "editSegue", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
     
+}
+
+// MARK:- PrepareForSegue functionality
+extension MainViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "addSegue") {
+            let controller = segue.destination as? DetailViewController
+            controller?.itemState = .add
+        } else if (segue.identifier == "editSegue") {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let controller = segue.destination as? DetailViewController
+                controller?.itemState = .edit
+                controller?.loadView()
+                controller?.detailItem = fetchedResultsController?.object(at: indexPath)
+            }
+        }
+    }
 }
 
 // MARK:- FetchedResultsControllerDelegate functionality

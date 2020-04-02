@@ -11,6 +11,11 @@ import CoreData
 
 class DetailViewController: UIViewController {
     
+    var detailItem:BorrowedItem? {
+        didSet {
+            
+        }
+    }
     
     var imageState:ImageState?
     lazy var managedObjectContext:NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext)!
