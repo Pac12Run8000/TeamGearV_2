@@ -105,25 +105,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="qA0-8O-D6a">
-                                <rect key="frame" x="300" y="153" width="94" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="XUN-11-nMW"/>
-                                    <constraint firstAttribute="width" constant="94" id="h92-6b-q1g"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="stepperAction:" destination="tRw-8E-jKy" eventType="valueChanged" id="539-Q3-mWx"/>
-                                </connections>
-                            </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="number of items: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWY-Wj-Eue">
-                                <rect key="frame" x="150" y="153" width="140" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="PM4-kH-V4a"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="date equipment was loaned:" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WY4-yu-KCu">
                                 <rect key="frame" x="20" y="238" width="374" height="34"/>
                                 <constraints>
@@ -192,14 +173,9 @@
                             <constraint firstItem="cKO-RM-m37" firstAttribute="top" secondItem="JSY-bF-vuT" secondAttribute="bottom" constant="40" id="USk-LO-T4f"/>
                             <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="wIA-wp-cx4" secondAttribute="trailing" constant="20" id="V5f-WE-gdv"/>
                             <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="tLQ-RL-s7i" secondAttribute="trailing" constant="20" id="XRB-Fw-b0p"/>
-                            <constraint firstItem="qA0-8O-D6a" firstAttribute="top" secondItem="tLQ-RL-s7i" secondAttribute="bottom" constant="10" id="bap-93-vkj"/>
                             <constraint firstItem="WY4-yu-KCu" firstAttribute="leading" secondItem="iT6-y8-dgU" secondAttribute="leading" constant="20" id="bbb-i4-AqU"/>
-                            <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="qA0-8O-D6a" secondAttribute="trailing" constant="20" id="c2i-fl-TKi"/>
-                            <constraint firstItem="qA0-8O-D6a" firstAttribute="leading" secondItem="LWY-Wj-Eue" secondAttribute="trailing" constant="10" id="dUx-Fu-eVa"/>
                             <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="KxQ-lo-jzY" secondAttribute="trailing" id="gQr-tx-uzF"/>
                             <constraint firstItem="KxQ-lo-jzY" firstAttribute="top" secondItem="JSY-bF-vuT" secondAttribute="bottom" constant="14" id="j5Q-Cj-fi3"/>
-                            <constraint firstItem="LWY-Wj-Eue" firstAttribute="leading" secondItem="Ifx-Ly-NQh" secondAttribute="trailing" constant="10" id="lOU-0s-e19"/>
-                            <constraint firstItem="LWY-Wj-Eue" firstAttribute="top" secondItem="tLQ-RL-s7i" secondAttribute="bottom" constant="10" id="mZm-HO-B7i"/>
                             <constraint firstItem="WY4-yu-KCu" firstAttribute="top" secondItem="Ifx-Ly-NQh" secondAttribute="bottom" constant="10" id="sxw-Ze-pdZ"/>
                             <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="JSY-bF-vuT" secondAttribute="trailing" constant="20" id="vb6-bC-aCO"/>
                             <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="WY4-yu-KCu" secondAttribute="trailing" constant="20" id="y6U-Ep-kit"/>
@@ -218,10 +194,8 @@
                         <outlet property="itemImage" destination="Ifx-Ly-NQh" id="DVS-K5-YHU"/>
                         <outlet property="nameOfBorrowerLabelOutlet" destination="rIk-uc-45s" id="eqg-mV-ybj"/>
                         <outlet property="nameOfItemLabelOutlet" destination="tLQ-RL-s7i" id="Xja-sU-9lv"/>
-                        <outlet property="numberOfItemsLblOutlet" destination="LWY-Wj-Eue" id="Slh-ib-CQx"/>
                         <outlet property="personImage" destination="cKO-RM-m37" id="ctk-BQ-bf0"/>
                         <outlet property="saveButtonOutlet" destination="coX-HT-jwW" id="Wfg-vZ-dDE"/>
-                        <outlet property="stepperOutlet" destination="qA0-8O-D6a" id="TzD-Ui-iXw"/>
                         <outlet property="txtLoanOutlet" destination="WY4-yu-KCu" id="avH-Iq-QrM"/>
                         <outlet property="txtReturnOutlet" destination="JSY-bF-vuT" id="0Ef-3c-9jU"/>
                     </connections>

@@ -28,7 +28,6 @@ class DetailViewController: UIViewController {
     var variableTextField:UITextField!
     let datePicker = UIDatePicker()
     var itemState:ItemState?
-    var itemCount:Int16? = 1
     var borrowedItemToEdit:BorrowedItem? {
         didSet {
             
@@ -36,14 +35,13 @@ class DetailViewController: UIViewController {
     }
     
     
-    @IBOutlet weak var stepperOutlet: UIStepper!
+    
     @IBOutlet weak var isSavedMessageLabel: UILabel!
     @IBOutlet weak var saveButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var nameOfBorrowerLabelOutlet: UITextField!
     @IBOutlet weak var nameOfItemLabelOutlet: UITextField!
     @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var numberOfItemsLblOutlet: UILabel!
     @IBOutlet weak var txtLoanOutlet: UITextField!
     @IBOutlet weak var txtReturnOutlet: UITextField!
     
@@ -70,17 +68,7 @@ class DetailViewController: UIViewController {
     }
     
 
-    @IBAction func stepperAction(_ sender: UIStepper) {
-        
-            itemCount = Int16(sender.value)
-            if let itemCount = itemCount {
-                numberOfItemsLblOutlet.text = "number of items: \(itemCount)"
-            }
-            
-        
-      
-         
-    }
+    
     
     @IBAction func btnSaveAction(_ sender: Any) {
         saveItemAndPersonData()
@@ -417,9 +405,7 @@ extension DetailViewController {
         borrowedItem.title = nameOfItemLabelOutlet.text
         borrowedItem.startDate = loanDate
         borrowedItem.endDate = returnDate
-        if let itemCount = itemCount {
-            borrowedItem.numberOfItems = itemCount
-        }
+        
        
         let person = Person(context: managedObjectContext)
         if let data = personImage.image?.jpegData(compressionQuality: 0.3) {
@@ -464,8 +450,6 @@ extension DetailViewController {
                 itemImage.image = UIImage(data: data)
             }
             nameOfItemLabelOutlet.text = detailItem.title
-            numberOfItemsLblOutlet.text = "number of items: \(detailItem.numberOfItems)"
-            stepperOutlet.isEnabled = false
             txtLoanOutlet.text = "date loaned: \(Convenience.formatTheDate(date: detailItem.startDate as! NSDate))"
             txtReturnOutlet.text = "date returned: \(Convenience.formatTheDate(date: detailItem.endDate as! NSDate))"
             

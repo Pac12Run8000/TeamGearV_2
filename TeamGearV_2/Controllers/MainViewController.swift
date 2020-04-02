@@ -26,6 +26,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         
         setupTableViewDelegates()
@@ -47,24 +48,7 @@ class MainViewController: UIViewController {
 }
 
 
-// MARK:- Prepare for segue functionality
-//extension MainViewController {
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == "addSegue") {
-//            let controller = segue.destination as? DetailViewController
-//
-//            controller?.itemState = .add
-//
-//        } else if (segue.identifier == "editSegue") {
-//            let controller = segue.destination as? DetailViewController
-//
-//            controller?.itemState = .edit
-//        }
-//    }
-//
-//
-//}
+
 
 
 // MARK:- UITablelViewDelegate and Datasource functionality
