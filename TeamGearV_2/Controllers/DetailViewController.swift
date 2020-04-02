@@ -53,10 +53,7 @@ class DetailViewController: UIViewController {
         txtReturnOutlet.delegate = self
         
         
-        isSavedMessageLabel.layer.masksToBounds = true
-        isSavedMessageLabel.layer.cornerRadius = 3
-        isSavedMessageLabel.layer.borderWidth = 1
-        isSavedMessageLabel.alpha = 0.0
+        messageLabelUI()
         
         
     }
@@ -435,6 +432,17 @@ extension DetailViewController {
         
     }
     
+}
+
+// MARK:- MessageLabel UI
+extension DetailViewController {
+    
+    func messageLabelUI() {
+        isSavedMessageLabel.layer.masksToBounds = true
+        isSavedMessageLabel.layer.cornerRadius = 3
+        isSavedMessageLabel.layer.borderWidth = 1
+        isSavedMessageLabel.alpha = 0.0
+    }
 }
 
 

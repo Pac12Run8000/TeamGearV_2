@@ -119,7 +119,7 @@ extension MainViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let controller = segue.destination as? DetailViewController
                 controller?.itemState = .edit
-                controller?.loadView()
+//                controller?.loadView()
                 controller?.detailItem = fetchedResultsController?.object(at: indexPath)
             }
         }
