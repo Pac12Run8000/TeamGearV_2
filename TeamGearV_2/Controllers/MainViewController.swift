@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var sortType:SortType = .date
     
     var managedObjectContext:NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext
     

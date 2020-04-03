@@ -11,6 +11,9 @@ import CoreData
 
 class DetailViewController: UIViewController {
     
+    
+    
+    
     var detailItem:BorrowedItem? {
         didSet {
             
@@ -71,7 +74,7 @@ class DetailViewController: UIViewController {
     
     
     @IBAction func btnSaveAction(_ sender: Any) {
-        saveItemAndPersonData()
+        saveOrUpdateBorrowedItemAndPersonData()
         
         
     }
@@ -240,7 +243,7 @@ extension DetailViewController {
 // MARK:--- Field Validation Functionality ---
 extension DetailViewController {
     
-    func saveItemAndPersonData() {
+    func saveOrUpdateBorrowedItemAndPersonData() {
         
         guard validateItemImage() else {
             presentLoginError(title: "INPUT ERROR", msg: "Select an image for the item.")
