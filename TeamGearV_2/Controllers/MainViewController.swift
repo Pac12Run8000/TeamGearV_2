@@ -236,7 +236,8 @@ extension MainViewController {
         if let startDate = item.startDate, let endDate = item.endDate {
             cell.detailTextLabel?.text = "start date:\(Convenience.formatTheDate(date: startDate as NSDate)) end date:\(Convenience.formatTheDate(date: endDate as NSDate))"
             if let imageData = item.image, let image = UIImage(data: imageData) {
-                cell.imageView?.image = image
+                
+                cell.imageView?.image = returnAppropriateImage(borrowedItem: item)
                 cell.imageView?.layer.borderWidth = 1
                 cell.imageView?.layer.masksToBounds = true
                 
@@ -251,6 +252,23 @@ extension MainViewController {
         }
     }
     
+    
+    func returnAppropriateImage(borrowedItem:BorrowedItem) -> UIImage? {
+        switch sortType {
+        case .date:
+            if let data = borrowedItem.image {
+                return UIImage(data: data)
+            }
+            return nil
+        case .person:
+            if let data = borrowedItem.person?.image {
+                return UIImage(data: data)
+            }
+            return nil
+        default:
+            print("Do nothing.")
+        }
+    }
     
 }
 
