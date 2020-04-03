@@ -204,8 +204,22 @@ extension MainViewController:NSFetchedResultsControllerDelegate {
     
     func loadData() {
         let request:NSFetchRequest = BorrowedItem.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key:  sortType == .date ? "endDate" : "person.name", ascending:  false)]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext!, sectionNameKeyPath: sortType == .date ? nil : "person.name", cacheName: nil)
+        
+        let sortDescriptors:[NSSortDescriptor]?
+        let sectionKeyPath:String?
+        switch sortType {
+        case .date:
+            sortDescriptors = [NSSortDescriptor(key: "endDate", ascending:  true)]
+            sectionKeyPath = nil
+        case .person:
+            sortDescriptors = [NSSortDescriptor(key: "person.name", ascending: false)]
+            sectionKeyPath = "person.name"
+        default:
+            print("do nothing")
+        }
+        
+        request.sortDescriptors = sortDescriptors
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext!, sectionNameKeyPath: sectionKeyPath, cacheName: nil)
         
         do {
             try fetchedResultsController?.performFetch()
