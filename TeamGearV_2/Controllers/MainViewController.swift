@@ -100,6 +100,7 @@ extension MainViewController:UITableViewDelegate, UITableViewDataSource {
         let item = fetchedResultsController?.object(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
         if let item = item {
+            
             configureCell(cell: cell, item: item)
         }
         return cell
@@ -238,13 +239,14 @@ extension MainViewController {
                 cell.imageView?.image = image
                 cell.imageView?.layer.borderWidth = 1
                 cell.imageView?.layer.masksToBounds = true
-                cell.imageView?.layer.cornerRadius = 5
+                
             } else {
                 cell.imageView?.image = nil
                 cell.imageView?.layer.borderWidth = 1
                 cell.imageView?.layer.masksToBounds = true
-                cell.imageView?.layer.cornerRadius = 5
             }
+            cell.imageView?.layer.cornerRadius = cell.frame.size.height / 2
+
             
         }
     }
