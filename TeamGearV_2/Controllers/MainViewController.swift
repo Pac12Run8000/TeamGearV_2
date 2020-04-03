@@ -54,8 +54,6 @@ class MainViewController: UIViewController {
             print("Do nothing")
         }
         loadData()
-        
-        //tableView.reloadData()
     }
     
     
@@ -206,20 +204,20 @@ extension MainViewController:NSFetchedResultsControllerDelegate {
         let request:NSFetchRequest = BorrowedItem.fetchRequest()
         
         let sortDescriptors:[NSSortDescriptor]?
-        let sectionKeyPath:String?
+        let sectionKeyPathName:String?
         switch sortType {
         case .date:
             sortDescriptors = [NSSortDescriptor(key: "endDate", ascending:  true)]
-            sectionKeyPath = nil
+            sectionKeyPathName = nil
         case .person:
             sortDescriptors = [NSSortDescriptor(key: "person.name", ascending: false)]
-            sectionKeyPath = "person.name"
+            sectionKeyPathName = "person.name"
         default:
             print("do nothing")
         }
         
         request.sortDescriptors = sortDescriptors
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext!, sectionNameKeyPath: sectionKeyPath, cacheName: nil)
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext!, sectionNameKeyPath: sectionKeyPathName, cacheName: nil)
         
         do {
             try fetchedResultsController?.performFetch()

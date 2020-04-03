@@ -12,8 +12,10 @@ class Convenience {
     
     static func formatTheDate(date:NSDate) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.dateFormat = "MMM d, h:mm a"
         
         return dateFormatter.string(from: date as! Date)
     }
+    
+   
 }

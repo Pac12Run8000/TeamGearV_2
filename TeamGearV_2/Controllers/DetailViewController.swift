@@ -100,7 +100,8 @@ extension DetailViewController {
 
         let dateformatter = returnDateFormatter()
         
-        let formattedDate = dateformatter.string(from: datePicker.date)
+//        let formattedDate = dateformatter.string(from: datePicker.date)
+        let formattedDate = Convenience.formatTheDate(date: datePicker.date as NSDate)
         
         if (variableTextField == txtLoanOutlet) {
             loanDate = datePicker.date
@@ -277,10 +278,20 @@ extension DetailViewController {
         
         
         if itemState == .add {
-            print("I'm adding")
             saveToCoreData()
         } else if itemState == .edit {
            print("I'm editing")
+            detailItem?.title = nameOfItemLabelOutlet.text
+            detailItem?.image = itemImage.image?.jpegData(compressionQuality: 0.3)
+            var person = detailItem?.person
+            person?.image = personImage.image?.jpegData(compressionQuality: 0.3)
+            
+            do {
+                try CoreDataStack.saveContext(context: managedObjectContext)
+                print("BorrowedItem was updated.")
+            } catch {
+                print("error on save:\(error.localizedDescription)")
+            }
         }
         
         
@@ -452,6 +463,8 @@ extension DetailViewController {
             if let data = detailItem.image {
                 itemImage.image = UIImage(data: data)
             }
+            
+            
             nameOfItemLabelOutlet.text = detailItem.title
             txtLoanOutlet.text = "date loaned: \(Convenience.formatTheDate(date: detailItem.startDate as! NSDate))"
             txtReturnOutlet.text = "date returned: \(Convenience.formatTheDate(date: detailItem.endDate as! NSDate))"
