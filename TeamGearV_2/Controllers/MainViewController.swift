@@ -27,17 +27,16 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         
         setupTableViewDelegates()
         loadData()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-                
-        
-
-       
+        loadData()
     }
     
     @IBAction func addItemButtonAction(_ sender: Any) {

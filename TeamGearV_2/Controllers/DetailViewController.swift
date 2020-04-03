@@ -98,9 +98,6 @@ extension DetailViewController {
     
     @objc func doneButtonPressed() {
 
-        let dateformatter = returnDateFormatter()
-        
-//        let formattedDate = dateformatter.string(from: datePicker.date)
         let formattedDate = Convenience.formatTheDate(date: datePicker.date as NSDate)
         
         if (variableTextField == txtLoanOutlet) {
@@ -283,8 +280,12 @@ extension DetailViewController {
            print("I'm editing")
             detailItem?.title = nameOfItemLabelOutlet.text
             detailItem?.image = itemImage.image?.jpegData(compressionQuality: 0.3)
+            detailItem?.startDate = loanDate
+            detailItem?.endDate = returnDate
+            
             var person = detailItem?.person
             person?.image = personImage.image?.jpegData(compressionQuality: 0.3)
+            
             
             do {
                 try CoreDataStack.saveContext(context: managedObjectContext)
@@ -466,8 +467,12 @@ extension DetailViewController {
             
             
             nameOfItemLabelOutlet.text = detailItem.title
+            
             txtLoanOutlet.text = "date loaned: \(Convenience.formatTheDate(date: detailItem.startDate as! NSDate))"
+            loanDate = detailItem.startDate
+            
             txtReturnOutlet.text = "date returned: \(Convenience.formatTheDate(date: detailItem.endDate as! NSDate))"
+            returnDate = detailItem.endDate
             
             let person = detailItem.person
             if let data = person?.image {
