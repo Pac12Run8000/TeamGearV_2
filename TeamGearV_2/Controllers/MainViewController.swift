@@ -44,7 +44,21 @@ class MainViewController: UIViewController {
         performSegue(withIdentifier: "addSegue", sender: self)
     }
     
-   
+    @IBAction func sortingActionChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            sortType = .date
+        case 1:
+            sortType = .person
+        default:
+            print("Do nothing")
+        }
+        loadData()
+        
+        //tableView.reloadData()
+    }
+    
+    
 
 }
 
@@ -58,6 +72,17 @@ extension MainViewController:UITableViewDelegate, UITableViewDataSource {
     func setupTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if sortType == .date {
+            return nil
+        } else {
+            if let sectionInfo = fetchedResultsController?.sections![section] {
+                return sectionInfo.name
+            }
+        }
+        return nil
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -126,7 +151,7 @@ extension MainViewController:NSFetchedResultsControllerDelegate {
         case .insert:
             tableView.insertSections(set, with: .fade)
         case .delete:
-            tableView.deleteSections(set, with: .fade)
+            tableView.deleteSections(set, with: .automatic)
         default:
             // irrelevant in our case
             break
@@ -179,8 +204,8 @@ extension MainViewController:NSFetchedResultsControllerDelegate {
     
     func loadData() {
         let request:NSFetchRequest = BorrowedItem.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: false)]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+        request.sortDescriptors = [NSSortDescriptor(key:  sortType == .date ? "endDate" : "person.name", ascending:  false)]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext!, sectionNameKeyPath: sortType == .date ? nil : "person.name", cacheName: nil)
         
         do {
             try fetchedResultsController?.performFetch()
