@@ -66,12 +66,7 @@ class DetailViewController: UIViewController {
     
     }
     
-    @objc func startitUp() {
-        print("fuck it bro!!!")
-    }
-    
-
-    
+   
     
     @IBAction func btnSaveAction(_ sender: Any) {
         saveOrUpdateBorrowedItemAndPersonData()
@@ -277,22 +272,7 @@ extension DetailViewController {
         if itemState == .add {
             saveToCoreData()
         } else if itemState == .edit {
-           print("I'm editing")
-            detailItem?.title = nameOfItemLabelOutlet.text
-            detailItem?.image = itemImage.image?.jpegData(compressionQuality: 0.3)
-            detailItem?.startDate = loanDate
-            detailItem?.endDate = returnDate
-            
-            var person = detailItem?.person
-            person?.image = personImage.image?.jpegData(compressionQuality: 0.3)
-            
-            
-            do {
-                try CoreDataStack.saveContext(context: managedObjectContext)
-                print("BorrowedItem was updated.")
-            } catch {
-                print("error on save:\(error.localizedDescription)")
-            }
+            updateToCoredata()
         }
         
         
@@ -442,7 +422,22 @@ extension DetailViewController {
     }
     
     func updateToCoredata() {
+        detailItem?.title = nameOfItemLabelOutlet.text
+        detailItem?.image = itemImage.image?.jpegData(compressionQuality: 0.3)
+        detailItem?.startDate = loanDate
+        detailItem?.endDate = returnDate
         
+        var person = detailItem?.person
+        person?.image = personImage.image?.jpegData(compressionQuality: 0.3)
+        person?.name = nameOfBorrowerLabelOutlet.text
+        
+        
+        do {
+            try CoreDataStack.saveContext(context: managedObjectContext)
+            print("BorrowedItem was updated.")
+        } catch {
+            print("error on save:\(error.localizedDescription)")
+        }
     }
     
 }

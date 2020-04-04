@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
         
         if getSettingsIsOnStatus() {
             print("Call the local notification.")
-            setNotification()
+            
         } else {
             print("No notification")
         }
@@ -46,7 +46,7 @@ class SettingsViewController: UIViewController {
         setUserDefaults(switchVal: sender.isOn)
         if getSettingsIsOnStatus() {
             print("Call the local notification.")
-            setNotification()
+            
         } else {
             print("No notification")
         }
