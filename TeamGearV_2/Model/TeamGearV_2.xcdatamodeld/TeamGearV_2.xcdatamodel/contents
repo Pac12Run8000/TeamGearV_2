@@ -12,8 +12,12 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="borrowedItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BorrowedItem" inverseName="person" inverseEntity="BorrowedItem"/>
     </entity>
+    <entity name="UserNotifications" representedClassName="UserNotifications" syncable="YES" codeGenerationType="class">
+        <attribute name="isInUse" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="BorrowedItem" positionX="-54" positionY="-9" width="128" height="118"/>
         <element name="Person" positionX="-386.55859375" positionY="-2.375" width="128" height="88"/>
+        <element name="UserNotifications" positionX="-216" positionY="36" width="128" height="58"/>
     </elements>
 </model>
