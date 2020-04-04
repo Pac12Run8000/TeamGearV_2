@@ -28,14 +28,14 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-                let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "BorrowedItem")
-                    let request = NSBatchDeleteRequest(fetchRequest: fetch)
-                do {
-                    let result = try managedObjectContext!.execute(request)
-                    print("Deletion completed")
-                } catch {
-                    print("Error:\(error.localizedDescription)")
-                }
+//                let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "BorrowedItem")
+//                    let request = NSBatchDeleteRequest(fetchRequest: fetch)
+//                do {
+//                    let result = try managedObjectContext!.execute(request)
+//                    print("Deletion completed")
+//                } catch {
+//                    print("Error:\(error.localizedDescription)")
+//                }
         
                 
         

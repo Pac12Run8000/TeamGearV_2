@@ -31,6 +31,9 @@
                                     <constraint firstAttribute="height" constant="31" id="G6K-9o-UJu"/>
                                     <constraint firstAttribute="width" constant="47" id="siT-Bg-1ZC"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="settingsControllerAction:" destination="AuB-Mf-HU7" eventType="valueChanged" id="qEB-EK-6xl"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
