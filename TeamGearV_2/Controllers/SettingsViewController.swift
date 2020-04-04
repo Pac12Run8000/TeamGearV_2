@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 
 class SettingsViewController: UIViewController {
@@ -25,6 +26,16 @@ class SettingsViewController: UIViewController {
         
         settingsControlOutlet.isOn = getSettingsIsOnStatus()
 
+        // ----------------------------
+        
+        
+        
+        if getSettingsIsOnStatus() {
+            print("Call the local notification.")
+            setNotification()
+        } else {
+            print("No notification")
+        }
         
         
         
@@ -33,6 +44,12 @@ class SettingsViewController: UIViewController {
     
     @IBAction func settingsControllerAction(_ sender: UISwitch) {
         setUserDefaults(switchVal: sender.isOn)
+        if getSettingsIsOnStatus() {
+            print("Call the local notification.")
+            setNotification()
+        } else {
+            print("No notification")
+        }
     }
     
    
@@ -59,6 +76,31 @@ extension SettingsViewController {
         }
         return isSettingsOn
     }
+    
+}
+// MARK:- --- Notification functionality ---
+extension SettingsViewController {
+    
+    func setNotification() {
+        let center = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Reminder"
+        content.body = "It is time for Andy Hug to return your Boxing Gloves."
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
+        center.add(request) { (error) in
+            guard error == nil else {
+                print("There was an error:", error?.localizedDescription)
+                return
+            }
+        }
+    }
+    
+    
     
 }
 

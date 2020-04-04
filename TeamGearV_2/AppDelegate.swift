@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 
 @UIApplicationMain
@@ -16,7 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+            guard error == nil else {
+                print("There was an error requesting authorization:\(error?.localizedDescription)")
+                return
+            }
+            
+            guard granted else {
+                print("Permission was not granted")
+                return
+            }
+            
+            print("Permission was granted")
+            
+            
+        }
+        
+        
         return true
     }
 
