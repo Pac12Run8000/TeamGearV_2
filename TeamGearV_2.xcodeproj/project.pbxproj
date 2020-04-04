@@ -11,6 +11,7 @@
 		097054C82433D0E500E9E635 /* ImageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097054C72433D0E500E9E635 /* ImageState.swift */; };
 		097054CC24355FF800E9E635 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097054CB24355FF800E9E635 /* Convenience.swift */; };
 		097054CE2436E87C00E9E635 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097054CD2436E87C00E9E635 /* SortType.swift */; };
+		097054D024382C8B00E9E635 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097054CF24382C8A00E9E635 /* SettingsViewController.swift */; };
 		09B2121D2431727B00EA9F7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2121C2431727B00EA9F7D /* AppDelegate.swift */; };
 		09B2121F2431727B00EA9F7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2121E2431727B00EA9F7D /* SceneDelegate.swift */; };
 		09B212242431727B00EA9F7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09B212222431727B00EA9F7D /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		097054C72433D0E500E9E635 /* ImageState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageState.swift; sourceTree = "<group>"; };
 		097054CB24355FF800E9E635 /* Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		097054CD2436E87C00E9E635 /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
+		097054CF24382C8A00E9E635 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		09B212192431727B00EA9F7D /* TeamGearV_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamGearV_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B2121C2431727B00EA9F7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09B2121E2431727B00EA9F7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				09B21231243172F000EA9F7D /* MainViewController.swift */,
 				09B212332431736500EA9F7D /* DetailViewController.swift */,
+				097054CF24382C8A00E9E635 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				09B212342431736500EA9F7D /* DetailViewController.swift in Sources */,
 				09B2124024317A1600EA9F7D /* TeamGearV_2.xcdatamodeld in Sources */,
 				097054C82433D0E500E9E635 /* ImageState.swift in Sources */,
+				097054D024382C8B00E9E635 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

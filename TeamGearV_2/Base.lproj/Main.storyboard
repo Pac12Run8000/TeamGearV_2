@@ -7,6 +7,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="CJK-Kh-rNh">
+            <objects>
+                <viewController id="AuB-Mf-HU7" customClass="SettingsViewController" customModule="TeamGearV_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="14D-a4-rsj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="JMK-Ta-epg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mCK-a9-Ltk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GD9-bv-g6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042" y="-667"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -57,6 +73,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="zmU-Ns-Hin">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="Zoi-cZ-bO8">
+                            <connections>
+                                <action selector="settingsButtonAction:" destination="BYZ-38-t0r" id="wui-WT-E7w"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="vWz-fj-2iW">
                             <rect key="frame" x="98.5" y="6" width="217" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -78,6 +99,7 @@
                         <outlet property="tableView" destination="eYW-8N-tcR" id="QVB-Tg-GJJ"/>
                         <segue destination="tRw-8E-jKy" kind="show" identifier="addSegue" id="cpO-hd-UOE"/>
                         <segue destination="tRw-8E-jKy" kind="show" identifier="editSegue" id="RIf-o3-nWa"/>
+                        <segue destination="AuB-Mf-HU7" kind="show" identifier="settingsSegue" id="g0c-Uf-ILw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

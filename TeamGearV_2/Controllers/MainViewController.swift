@@ -55,6 +55,9 @@ class MainViewController: UIViewController {
         loadData()
     }
     
+    @IBAction func settingsButtonAction(_ sender: Any) {
+        performSegue(withIdentifier: "settingsSegue", sender: self)
+    }
     
 
 }
@@ -235,20 +238,11 @@ extension MainViewController {
         cell.textLabel?.text = item.title
         if let startDate = item.startDate, let endDate = item.endDate {
             cell.detailTextLabel?.text = "start date:\(Convenience.formatTheDate(date: startDate as NSDate)) end date:\(Convenience.formatTheDate(date: endDate as NSDate))"
-            if let imageData = item.image, let image = UIImage(data: imageData) {
-                
+            
                 cell.imageView?.image = returnAppropriateImage(borrowedItem: item)
                 cell.imageView?.layer.borderWidth = 1
                 cell.imageView?.layer.masksToBounds = true
-                
-            } else {
-                cell.imageView?.image = nil
-                cell.imageView?.layer.borderWidth = 1
-                cell.imageView?.layer.masksToBounds = true
-            }
-            cell.imageView?.layer.cornerRadius = cell.frame.size.height / 2
-
-            
+                cell.imageView?.layer.cornerRadius = cell.frame.size.height / 2
         }
     }
     
