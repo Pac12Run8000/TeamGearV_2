@@ -12,7 +12,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     var isSettingsOn:Bool?
-    let defaults = UserDefaults.standard
+    var defaults:UserDefaults!
     
     @IBOutlet weak var settingsControlOutlet: UISwitch!
     
@@ -20,6 +20,8 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        defaults = UserDefaults.standard
         
         settingsControlOutlet.isOn = getSettingsIsOnStatus()
 
