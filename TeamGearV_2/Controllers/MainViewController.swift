@@ -254,6 +254,19 @@ extension MainViewController {
                 cell.imageView?.layer.borderWidth = 1
                 cell.imageView?.layer.masksToBounds = true
                 cell.imageView?.layer.cornerRadius = cell.frame.size.height / 2
+            
+
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+            let formatEndDate = dateFormatter.string(from: endDate)
+            let formatNow = dateFormatter.string(from: Date())
+            
+            if formatEndDate >= formatNow {
+                print("Contact the person you loaned to.")
+            } else {
+                print("It's not time yet.")
+            }
         }
     }
     

@@ -78,13 +78,6 @@ extension SettingsViewController {
     }
     
 }
-// MARK:- --- Notification functionality ---
-extension SettingsViewController {
-    
-    
-    
-    
-    
-}
+
 
 
