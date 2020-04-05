@@ -146,8 +146,6 @@ extension DetailViewController {
     
     @objc func presentPersonActionSheet() {
         imageState = .person
-        
-        print("Working!!!!!")
         let imagePickerController = setImagePickerDelegate()
 
         let actionSheet = UIAlertController(title: "Image input", message: "Enter an image for the person who is borrowing the item.", preferredStyle: .actionSheet)

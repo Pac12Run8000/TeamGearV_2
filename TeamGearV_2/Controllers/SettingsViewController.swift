@@ -91,6 +91,7 @@ extension SettingsViewController {
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
         
+        
         let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
         center.add(request) { (error) in
             guard error == nil else {
