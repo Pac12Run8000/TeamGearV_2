@@ -256,18 +256,29 @@ extension MainViewController {
                 cell.imageView?.layer.cornerRadius = cell.frame.size.height / 2
             
 
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
-            let formatEndDate = dateFormatter.string(from: endDate)
-            let formatNow = dateFormatter.string(from: Date())
-            
-            if formatEndDate >= formatNow {
-                print("Contact the person you loaned to.")
-            } else {
+            switch setAlertForItemDueForReturn(borrowedItem: item) {
+            case true:
+                print("Contact the person you loaned to!")
+                cell.backgroundColor = UIColor.red
+            case false:
                 print("It's not time yet.")
+                cell.backgroundColor = UIColor.clear
             }
+
+            
         }
+    }
+    
+    
+    func setAlertForItemDueForReturn(borrowedItem:BorrowedItem) -> Bool {
+        if let endDate = borrowedItem.endDate, let endDateString = Convenience.formatForComparison(date: endDate) as? String, let nowDateString = Convenience.formatForComparison(date: Date()) as? String {
+            
+            if endDateString >= nowDateString {
+                return true
+            }
+            return false
+        }
+       return false
     }
     
     
@@ -289,6 +300,9 @@ extension MainViewController {
     }
     
 }
+
+
+
 
 
 

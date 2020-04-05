@@ -17,5 +17,13 @@ class Convenience {
         return dateFormatter.string(from: date as! Date)
     }
     
+    
+    static func formatForComparison(date:Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        let formatEndDate = dateFormatter.string(from: date)
+        return formatEndDate
+    }
+    
    
 }

@@ -274,7 +274,6 @@ extension DetailViewController {
         }
         
         if let startDate = loanDate, let endDate = returnDate, let title = nameOfItemLabelOutlet.text {
-            
             Convenience.setNotification(startDate: startDate, endDate: endDate, title: title)
         }
         
