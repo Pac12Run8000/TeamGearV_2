@@ -7,53 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings View Controller-->
-        <scene sceneID="CJK-Kh-rNh">
-            <objects>
-                <viewController id="AuB-Mf-HU7" customClass="SettingsViewController" customModule="TeamGearV_2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="14D-a4-rsj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn notifications on:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1E-KN-aRA">
-                                <rect key="frame" x="20" y="98" width="185" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="185" id="UGD-0D-Zhi"/>
-                                    <constraint firstAttribute="height" constant="25" id="bUg-dr-4gC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hH0-XK-Pjc">
-                                <rect key="frame" x="20" y="128" width="49" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="G6K-9o-UJu"/>
-                                    <constraint firstAttribute="width" constant="47" id="siT-Bg-1ZC"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="settingsControllerAction:" destination="AuB-Mf-HU7" eventType="valueChanged" id="qEB-EK-6xl"/>
-                                </connections>
-                            </switch>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="d1E-KN-aRA" firstAttribute="leading" secondItem="JMK-Ta-epg" secondAttribute="leading" constant="20" id="UJR-iI-UUi"/>
-                            <constraint firstItem="d1E-KN-aRA" firstAttribute="top" secondItem="JMK-Ta-epg" secondAttribute="top" constant="10" id="Vod-iJ-rtu"/>
-                            <constraint firstItem="hH0-XK-Pjc" firstAttribute="top" secondItem="d1E-KN-aRA" secondAttribute="bottom" constant="5" id="YRP-O6-xTN"/>
-                            <constraint firstItem="hH0-XK-Pjc" firstAttribute="leading" secondItem="JMK-Ta-epg" secondAttribute="leading" constant="20" id="lhi-wv-Qj6"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="JMK-Ta-epg"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="mCK-a9-Ltk"/>
-                    <connections>
-                        <outlet property="settingsControlOutlet" destination="hH0-XK-Pjc" id="ONg-Sz-HWQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GD9-bv-g6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1878" y="-656"/>
-        </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -104,11 +57,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="zmU-Ns-Hin">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="Zoi-cZ-bO8">
-                            <connections>
-                                <action selector="settingsButtonAction:" destination="BYZ-38-t0r" id="wui-WT-E7w"/>
-                            </connections>
-                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="vWz-fj-2iW">
                             <rect key="frame" x="98.5" y="6" width="217" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -130,7 +78,6 @@
                         <outlet property="tableView" destination="eYW-8N-tcR" id="QVB-Tg-GJJ"/>
                         <segue destination="tRw-8E-jKy" kind="show" identifier="addSegue" id="cpO-hd-UOE"/>
                         <segue destination="tRw-8E-jKy" kind="show" identifier="editSegue" id="RIf-o3-nWa"/>
-                        <segue destination="AuB-Mf-HU7" kind="show" identifier="settingsSegue" id="g0c-Uf-ILw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

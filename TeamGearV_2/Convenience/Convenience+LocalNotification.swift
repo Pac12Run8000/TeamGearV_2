@@ -16,7 +16,7 @@ extension Convenience {
         
         let content = UNMutableNotificationContent()
         content.title = "Reminder"
-        content.body = title
+        content.body = "The item:\(title) was loaned out on \(startDate) and is due to be returned now."
         content.sound = .default
         
 

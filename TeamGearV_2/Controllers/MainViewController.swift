@@ -66,9 +66,7 @@ class MainViewController: UIViewController {
         loadData()
     }
     
-    @IBAction func settingsButtonAction(_ sender: Any) {
-        performSegue(withIdentifier: "settingsSegue", sender: self)
-    }
+    
     
 
 }
@@ -258,7 +256,7 @@ extension MainViewController {
 
             switch setAlertForItemDueForReturn(borrowedItem: item) {
             case true:
-                print("Contact the person you loaned to!")
+                print("Contact the person you loaned to!",Convenience.formatForComparison(date: endDate), Convenience.formatForComparison(date: Date()))
                 cell.backgroundColor = UIColor.red
             case false:
                 print("It's not time yet.")
