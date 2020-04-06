@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
 //                }
         
                 
-        
+        tableView.separatorColor = UIColor.pinkish
         setupTableViewDelegates()
         loadData()
         
@@ -250,14 +250,16 @@ extension MainViewController {
             
                 cell.imageView?.image = returnAppropriateImage(borrowedItem: item)
                 cell.imageView?.layer.borderWidth = 1
+                cell.imageView?.layer.borderColor = UIColor.pinkish.cgColor
                 cell.imageView?.layer.masksToBounds = true
                 cell.imageView?.layer.cornerRadius = cell.frame.size.height / 2
+                
             
 
             switch setAlertForItemDueForReturn(borrowedItem: item) {
             case true:
                 print("Contact the person you loaned to!",Convenience.formatForComparison(date: endDate), Convenience.formatForComparison(date: Date()))
-                cell.backgroundColor = UIColor.red
+                cell.backgroundColor = UIColor.pinkish
             case false:
                 print("It's not time yet.")
                 cell.backgroundColor = UIColor.clear
@@ -271,7 +273,7 @@ extension MainViewController {
     func setAlertForItemDueForReturn(borrowedItem:BorrowedItem) -> Bool {
         if let endDate = borrowedItem.endDate, let endDateString = Convenience.formatForComparison(date: endDate) as? String, let nowDateString = Convenience.formatForComparison(date: Date()) as? String {
             
-            if endDateString >= nowDateString {
+            if endDateString <= nowDateString {
                 return true
             }
             return false

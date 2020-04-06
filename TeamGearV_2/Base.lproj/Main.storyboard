@@ -142,7 +142,7 @@
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KxQ-lo-jzY">
                                 <rect key="frame" x="0.0" y="331" width="414" height="4"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.74901960784313726" green="0.53333333333333333" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="ztL-S2-4z9"/>
                                 </constraints>

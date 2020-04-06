@@ -62,6 +62,13 @@ class DetailViewController: UIViewController {
         
         populateFieldsForUpdate()
         
+        textFieldattributes(textField: nameOfItemLabelOutlet)
+        textFieldattributes(textField: nameOfBorrowerLabelOutlet)
+        textFieldattributes(textField: txtReturnOutlet)
+        textFieldattributes(textField: txtLoanOutlet)
+        
+        imageAttributes(imgView: itemImage)
+        imageAttributes(imgView: personImage)
         
     
     }
@@ -75,6 +82,26 @@ class DetailViewController: UIViewController {
     }
     
     
+    
+}
+
+// MARK:- --- UI Layout ---
+extension DetailViewController {
+    
+    func imageAttributes(imgView:UIImageView) {
+        imgView.layer.cornerRadius = 4
+        imgView.layer.masksToBounds = true
+        imgView.layer.borderColor = UIColor.pinkish.cgColor
+        imgView.layer.borderWidth = 1
+        imgView.backgroundColor = UIColor.darkBlue_2
+    }
+    
+    func textFieldattributes(textField:UITextField) {
+        textField.layer.borderColor = UIColor.pinkish.cgColor
+        textField.layer.masksToBounds = true
+        textField.layer.borderWidth = 1
+        textField.layer.cornerRadius = 4
+    }
     
 }
 
