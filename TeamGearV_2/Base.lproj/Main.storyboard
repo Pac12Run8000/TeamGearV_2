@@ -151,7 +151,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your information was saved. Click the &quot;Back&quot; button." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIA-wp-cx4">
                                 <rect key="frame" x="150" y="407" width="244" height="100"/>
-                                <color key="backgroundColor" red="0.37254901959999998" green="0.7725490196" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.74901960779999999" green="0.53333333329999999" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="6wZ-a9-dla"/>
                                 </constraints>

@@ -44,14 +44,10 @@ class MainViewController: UIViewController {
 //                }
         
         
-        navigationController?.navigationBar.barTintColor = UIColor.darkBlue_1
-        addButtonOutlet.tintColor = UIColor.white
-        
-        tableView.backgroundColor = UIColor.darkBlue_3
-        
+        configureNavigation()
+        configureTableView()
         configureSegmentedIndex()
-        tableView.separatorColor = UIColor.pinkish
-        setupTableViewDelegates()
+        configureTableViewDelegates()
         loadData()
         
     }
@@ -90,7 +86,7 @@ class MainViewController: UIViewController {
 // MARK:- UITablelViewDelegate and Datasource functionality
 extension MainViewController:UITableViewDelegate, UITableViewDataSource {
     
-    func setupTableViewDelegates() {
+    func configureTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -254,6 +250,16 @@ extension MainViewController:NSFetchedResultsControllerDelegate {
 
 // MARK:- Clean up the UI
 extension MainViewController {
+    
+    func configureTableView() {
+        tableView.backgroundColor = UIColor.darkBlue_3
+        tableView.separatorColor = UIColor.pinkish
+    }
+    
+    func configureNavigation() {
+        navigationController?.navigationBar.barTintColor = UIColor.darkBlue_1
+        addButtonOutlet.tintColor = UIColor.white
+    }
     
     func configureSegmentedIndex() {
         segmentedOutlet.backgroundColor = UIColor.darkBlue

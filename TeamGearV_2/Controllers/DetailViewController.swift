@@ -62,14 +62,14 @@ class DetailViewController: UIViewController {
         
         populateFieldsForUpdate()
         
-        textFieldattributes(textField: nameOfItemLabelOutlet)
-        textFieldattributes(textField: nameOfBorrowerLabelOutlet)
-        textFieldattributes(textField: txtReturnOutlet)
-        textFieldattributes(textField: txtLoanOutlet)
+        configureTextFields()
         
-        imageAttributes(imgView: itemImage)
-        imageAttributes(imgView: personImage)
+        configureImageViews()
         
+        view.backgroundColor = UIColor.darkBlue_3
+        
+        
+        configureNavigationController()
     
     }
     
@@ -87,6 +87,22 @@ class DetailViewController: UIViewController {
 
 // MARK:- --- UI Layout ---
 extension DetailViewController {
+    
+    func configureImageViews() {
+        imageAttributes(imgView: itemImage)
+        imageAttributes(imgView: personImage)
+    }
+    
+    func configureTextFields() {
+        textFieldattributes(textField: nameOfItemLabelOutlet)
+        textFieldattributes(textField: nameOfBorrowerLabelOutlet)
+        textFieldattributes(textField: txtReturnOutlet)
+        textFieldattributes(textField: txtLoanOutlet)
+    }
+    
+    func configureNavigationController() {
+        navigationController?.navigationBar.tintColor = UIColor.white
+    }
     
     func imageAttributes(imgView:UIImageView) {
         imgView.layer.cornerRadius = 4
