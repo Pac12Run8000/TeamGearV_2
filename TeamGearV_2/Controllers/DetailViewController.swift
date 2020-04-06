@@ -299,6 +299,11 @@ extension DetailViewController {
             return
         }
         
+        guard validateValidDateRange() else {
+            presentLoginError(title: "INPUT ERROR", msg: "The date range is invalid. Make sure that your return date doesn't predate the loan date.")
+            return
+        }
+        
         guard validatePersonImageView() else {
             presentLoginError(title: "INPUT ERROR", msg: "Select an image for a person who is borrowing the item.")
             return
@@ -320,8 +325,6 @@ extension DetailViewController {
             Convenience.setNotification(startDate: startDate, endDate: endDate, title: title)
         }
         
-        
-        
     }
     
     func validateDateItemIsReturned() -> Bool {
@@ -337,6 +340,18 @@ extension DetailViewController {
             txtLoanOutlet.becomeFirstResponder()
             return false
         }
+        return true
+    }
+    
+    func validateValidDateRange() -> Bool {
+        guard let loanDate = loanDate , let returnDate = returnDate else {
+            return false
+        }
+        guard loanDate.compare(returnDate) == .orderedAscending else {
+            return false
+        }
+        
+        
         return true
     }
     
