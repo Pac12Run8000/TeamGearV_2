@@ -13,6 +13,12 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var segmentedOutlet: UISegmentedControl!
+    
+    @IBOutlet weak var addButtonOutlet: UIBarButtonItem!
+    
+    
+    
     var sortType:SortType = .date
     
     var managedObjectContext:NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext
@@ -37,7 +43,13 @@ class MainViewController: UIViewController {
 //                    print("Error:\(error.localizedDescription)")
 //                }
         
-                
+        
+        navigationController?.navigationBar.barTintColor = UIColor.darkBlue_1
+        addButtonOutlet.tintColor = UIColor.white
+        
+        tableView.backgroundColor = UIColor.darkBlue_3
+        
+        configureSegmentedIndex()
         tableView.separatorColor = UIColor.pinkish
         setupTableViewDelegates()
         loadData()
@@ -243,6 +255,15 @@ extension MainViewController:NSFetchedResultsControllerDelegate {
 // MARK:- Clean up the UI
 extension MainViewController {
     
+    func configureSegmentedIndex() {
+        segmentedOutlet.backgroundColor = UIColor.darkBlue
+        segmentedOutlet.selectedSegmentTintColor = UIColor.darkBlue_3
+        segmentedOutlet.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.pinkish], for: .normal)
+        segmentedOutlet.layer.borderWidth = 2
+        segmentedOutlet.layer.masksToBounds = true
+        segmentedOutlet.layer.borderColor = UIColor.pinkish.cgColor
+    }
+    
     func configureCell(cell:UITableViewCell, item:BorrowedItem) {
         cell.textLabel?.text = item.title
         if let startDate = item.startDate, let endDate = item.endDate {
@@ -260,9 +281,11 @@ extension MainViewController {
             case true:
                 print("Contact the person you loaned to!",Convenience.formatForComparison(date: endDate), Convenience.formatForComparison(date: Date()))
                 cell.backgroundColor = UIColor.pinkish
+                cell.imageView?.layer.borderColor = UIColor.white.cgColor
             case false:
                 print("It's not time yet.")
                 cell.backgroundColor = UIColor.clear
+                cell.imageView?.layer.borderColor = UIColor.pinkish.cgColor
             }
 
             

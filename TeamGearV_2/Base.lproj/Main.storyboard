@@ -75,6 +75,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButtonOutlet" destination="5Lc-Sx-QKi" id="lrU-g8-IOm"/>
+                        <outlet property="segmentedOutlet" destination="vWz-fj-2iW" id="Kgr-9g-kex"/>
                         <outlet property="tableView" destination="eYW-8N-tcR" id="QVB-Tg-GJJ"/>
                         <segue destination="tRw-8E-jKy" kind="show" identifier="addSegue" id="cpO-hd-UOE"/>
                         <segue destination="tRw-8E-jKy" kind="show" identifier="editSegue" id="RIf-o3-nWa"/>
