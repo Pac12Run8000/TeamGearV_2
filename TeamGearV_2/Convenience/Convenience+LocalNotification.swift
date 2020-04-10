@@ -16,13 +16,14 @@ extension Convenience {
         
         let content = UNMutableNotificationContent()
         content.title = "Reminder"
-        content.body = "The item:\(title) was loaned out on \(startDate) and is due to be returned now."
-        content.sound = .default
+        content.body = "The item:\(title) was loaned out on \(formatTheDate(date: startDate as NSDate)) and is due to be returned now."
+        content.sound = .defaultCriticalSound(withAudioVolume: 10.0)
+//        let mydate = Calendar.current.date(byAdding: .minute, value: 1, to:endDate)
+//        let mydate = Calendar.current.date(bys)
         
-
+        let mydate = endDate
         
-        let mydate = Calendar.current.date(byAdding: .minute, value: 1, to:endDate)
-        let mydateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: mydate!)
+        let mydateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: mydate)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: mydateComponents, repeats: false)
         
