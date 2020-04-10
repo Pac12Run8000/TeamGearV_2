@@ -44,13 +44,19 @@ class MainViewController: UIViewController {
 //                }
         
         
+        
+        
         configureNavigation()
         configureTableView()
         configureSegmentedIndex()
         configureTableViewDelegates()
-        loadData()
+        
+        
+       
         
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

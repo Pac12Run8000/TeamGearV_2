@@ -9,6 +9,7 @@
 import Foundation
 import UserNotifications
 
+
 extension Convenience {
     
     static func setNotification(startDate:Date, endDate:Date, title:String) {
@@ -34,6 +35,8 @@ extension Convenience {
                 print("There was an error:", error?.localizedDescription)
                 return
             }
+            
+            
         }
     }
     
