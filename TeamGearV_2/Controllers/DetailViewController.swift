@@ -472,6 +472,7 @@ extension DetailViewController {
         do {
          try CoreDataStack.saveContext(context: managedObjectContext)
             saveButtonOutlet.isEnabled = false
+            self.isSavedMessageLabel.text = "Your information was saved. Click the \"Back\" button."
             fadeInFadeOut(label: isSavedMessageLabel)
             print("Save succeeded!")
         } catch {
@@ -494,6 +495,8 @@ extension DetailViewController {
         
         do {
             try CoreDataStack.saveContext(context: managedObjectContext)
+            self.isSavedMessageLabel.text = "The update was successful. Click the \"Back\" button."
+            fadeInFadeOut(label: isSavedMessageLabel)
             print("BorrowedItem was updated.")
         } catch {
             print("error on save:\(error.localizedDescription)")
