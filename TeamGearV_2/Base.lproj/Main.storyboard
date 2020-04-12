@@ -28,19 +28,35 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oij-Yn-d7t">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="tOb-fK-yGS" firstAttribute="trailing" secondItem="Jf9-Za-sMB" secondAttribute="trailing" id="1ut-LO-Ajw"/>
+                            <constraint firstItem="oij-Yn-d7t" firstAttribute="leading" secondItem="Jf9-Za-sMB" secondAttribute="leading" id="2oa-U0-HqJ"/>
+                            <constraint firstItem="oij-Yn-d7t" firstAttribute="top" secondItem="tOb-fK-yGS" secondAttribute="bottom" id="6Dv-2X-cb3"/>
+                            <constraint firstItem="Jf9-Za-sMB" firstAttribute="bottom" secondItem="oij-Yn-d7t" secondAttribute="bottom" id="AMt-iH-AHG"/>
+                            <constraint firstItem="Jf9-Za-sMB" firstAttribute="trailing" secondItem="oij-Yn-d7t" secondAttribute="trailing" id="WKa-jO-te4"/>
                             <constraint firstItem="tOb-fK-yGS" firstAttribute="leading" secondItem="Jf9-Za-sMB" secondAttribute="leading" id="gQG-D4-jI0"/>
                             <constraint firstItem="tOb-fK-yGS" firstAttribute="top" secondItem="Jf9-Za-sMB" secondAttribute="top" id="lke-bT-4kj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jf9-Za-sMB"/>
                     </view>
+                    <connections>
+                        <outlet property="toolbar" destination="tOb-fK-yGS" id="lVC-AN-4nN"/>
+                        <outlet property="webView" destination="oij-Yn-d7t" id="MZS-Ll-OKj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWK-4h-ak2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1878" y="-679"/>
+            <point key="canvasLocation" x="1876.8115942028987" y="-679.01785714285711"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
