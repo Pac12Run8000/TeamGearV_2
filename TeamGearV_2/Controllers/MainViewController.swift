@@ -61,6 +61,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        configureUserDefaults()
         loadData()
     }
     
@@ -83,6 +84,21 @@ class MainViewController: UIViewController {
     
     
 
+}
+
+
+// MARK:- UserDefaults functionality
+extension MainViewController {
+    
+    func configureUserDefaults() {
+        guard UserDefaults.standard.bool(forKey: Constants.UserDefaults.didAcceptPolicy) else {
+            print("You didn't accept terms of use.")
+            performSegue(withIdentifier: "termsSegue", sender: nil)
+            return
+        }
+        print("Terms of use accepted.")
+    }
+    
 }
 
 

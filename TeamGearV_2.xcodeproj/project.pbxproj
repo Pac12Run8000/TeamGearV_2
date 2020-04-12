@@ -23,6 +23,8 @@
 		09B212392431772800EA9F7D /* ItemState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B212382431772800EA9F7D /* ItemState.swift */; };
 		09B2124024317A1600EA9F7D /* TeamGearV_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09B2123E24317A1600EA9F7D /* TeamGearV_2.xcdatamodeld */; };
 		09B2124224317C1500EA9F7D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2124124317C1500EA9F7D /* CoreDataStack.swift */; };
+		09B504F124424D15000DA639 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B504F024424D15000DA639 /* TermsViewController.swift */; };
+		09B504F32442A9C9000DA639 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B504F22442A9C9000DA639 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		09B212382431772800EA9F7D /* ItemState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemState.swift; sourceTree = "<group>"; };
 		09B2123F24317A1600EA9F7D /* TeamGearV_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeamGearV_2.xcdatamodel; sourceTree = "<group>"; };
 		09B2124124317C1500EA9F7D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		09B504F024424D15000DA639 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		09B504F22442A9C9000DA639 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 				097054CB24355FF800E9E635 /* Convenience.swift */,
 				097054D124398B3500E9E635 /* Convenience+LocalNotification.swift */,
 				097054D5243AC1F700E9E635 /* ColorPallette.swift */,
+				09B504F22442A9C9000DA639 /* Constants.swift */,
 			);
 			path = Convenience;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 			children = (
 				09B21231243172F000EA9F7D /* MainViewController.swift */,
 				09B212332431736500EA9F7D /* DetailViewController.swift */,
+				09B504F024424D15000DA639 /* TermsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -205,7 +211,9 @@
 				09B21232243172F000EA9F7D /* MainViewController.swift in Sources */,
 				097054C62432F39A00E9E635 /* UIImage+Scale.swift in Sources */,
 				09B2121D2431727B00EA9F7D /* AppDelegate.swift in Sources */,
+				09B504F32442A9C9000DA639 /* Constants.swift in Sources */,
 				097054D6243AC1F700E9E635 /* ColorPallette.swift in Sources */,
+				09B504F124424D15000DA639 /* TermsViewController.swift in Sources */,
 				097054D224398B3500E9E635 /* Convenience+LocalNotification.swift in Sources */,
 				097054CE2436E87C00E9E635 /* SortType.swift in Sources */,
 				09B212392431772800EA9F7D /* ItemState.swift in Sources */,
