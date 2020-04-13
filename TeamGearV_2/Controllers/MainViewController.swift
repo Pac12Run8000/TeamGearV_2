@@ -21,6 +21,8 @@ class MainViewController: UIViewController {
     
     var sortType:SortType = .date
     
+    var bgColor:UIColor!
+    
     var managedObjectContext:NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext
     
     var fetchedResultsController:NSFetchedResultsController<BorrowedItem>? {
@@ -50,6 +52,11 @@ class MainViewController: UIViewController {
         configureTableView()
         configureSegmentedIndex()
         configureTableViewDelegates()
+        loadData()
+        
+        
+        
+
         
         
        
@@ -61,9 +68,24 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        
+        
         configureUserDefaults()
         loadData()
+        
+       
+//            let timer = Timer(fireAt: item, interval: 0, target: self, selector: #selector(runCode), userInfo: index, repeats: false)
+//                        RunLoop.main.add(timer, forMode: .common)
+            
+            
+        
+        
+        
     }
+    
+   
+    
+    
     
     @IBAction func addItemButtonAction(_ sender: Any) {
         performSegue(withIdentifier: "addSegue", sender: self)
@@ -295,6 +317,9 @@ extension MainViewController {
     func configureCell(cell:UITableViewCell, item:BorrowedItem) {
         cell.textLabel?.text = item.title
         if let startDate = item.startDate, let endDate = item.endDate {
+            
+            
+            
             cell.detailTextLabel?.text = "start date:\(Convenience.formatTheDate(date: startDate as NSDate)) end date:\(Convenience.formatTheDate(date: endDate as NSDate))"
             
                 cell.imageView?.image = returnAppropriateImage(borrowedItem: item)
@@ -314,12 +339,33 @@ extension MainViewController {
                 print("It's not time yet.")
                 cell.backgroundColor = UIColor.clear
                 cell.imageView?.layer.borderColor = UIColor.pinkish.cgColor
+                
             }
+            
+            
+            
 
             
         }
     }
     
+    /*
+    func getInstantBackgroundColor(item:BorrowedItem) -> Void {
+        let date:Date = item.endDate!
+        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(runCode), userInfo: nil, repeats: false)
+                RunLoop.main.add(timer, forMode: .common)
+        
+    }
+     */
+    
+    
+    @objc func runCode() {
+           print("Fire off date: 1")
+    }
+    
+    
+    
+
     
     func setAlertForItemDueForReturn(borrowedItem:BorrowedItem) -> Bool {
         if let endDate = borrowedItem.endDate, let endDateString = Convenience.formatForComparison(date: endDate) as? String, let nowDateString = Convenience.formatForComparison(date: Date()) as? String {
