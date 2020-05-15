@@ -21,7 +21,7 @@
                                     <constraint firstAttribute="height" constant="44" id="JwQ-R3-cdD"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="I accept the terms of use." id="HnC-Ho-MFB">
+                                    <barButtonItem title="I accept term and privacy policy." id="HnC-Ho-MFB">
                                         <connections>
                                             <action selector="acceptTermsAction:" destination="k60-h6-Rmo" id="zXh-Rh-AeT"/>
                                         </connections>
