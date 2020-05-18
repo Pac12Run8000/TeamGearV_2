@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>TeamGear needs your permission to access your camera.</string>
+	<string>TeamGear needs your permission to access your camera. The camera will be used to add images of the items that are being borrowed or images of the person borrowing an item.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>TeamGear needs your permission to accees your photo library.</string>
+	<string>TeamGear needs your permission to accees your photo library. The photo library will be used to add images of the items that are being borrowed or images of a person borrowing an item.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
