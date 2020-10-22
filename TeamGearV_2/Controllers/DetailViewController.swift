@@ -11,39 +11,19 @@ import CoreData
 
 class DetailViewController: UIViewController {
     
-    var detailItem:BorrowedItem? {
-        didSet {
-            
-        }
-    }
-    
-    
+    var detailItem:BorrowedItem?
     
     var imageState:ImageState?
     lazy var managedObjectContext:NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)?.persistantContainer.viewContext)!
     
     
-    var loanDate:Date?
-    var returnDate:Date?
+    
     var variableTextField:UITextField!
     let datePicker = UIDatePicker()
-    var itemState:ItemState? {
-        didSet {
-            
-            
-            
-        }
-    }
     
+    var itemState:ItemState?
     
-    
-    var borrowedItemToEdit:BorrowedItem? {
-        didSet {
-            
-        }
-    }
-    
-    
+    var borrowedItemToEdit:BorrowedItem?
     
     @IBOutlet weak var isSavedMessageLabel: UILabel!
     @IBOutlet weak var saveButtonOutlet: UIBarButtonItem!
@@ -51,8 +31,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameOfItemLabelOutlet: UITextField!
     @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var txtLoanOutlet: UITextField!
-    @IBOutlet weak var txtReturnOutlet: UITextField!
     @IBOutlet weak var datePickerStartDate: UIDatePicker!
     @IBOutlet weak var datePickerEndDate: UIDatePicker!
     
@@ -71,8 +49,7 @@ class DetailViewController: UIViewController {
         addGesturecognizerForItemImageView()
         addGestureRecognizerForPersonImageView()
 
-//        txtLoanOutlet.delegate = self
-//        txtReturnOutlet.delegate = self
+
         
         
         messageLabelUI()
@@ -117,8 +94,6 @@ extension DetailViewController {
     func configureTextFields() {
         textFieldattributes(textField: nameOfItemLabelOutlet)
         textFieldattributes(textField: nameOfBorrowerLabelOutlet)
-//        textFieldattributes(textField: txtReturnOutlet)
-//        textFieldattributes(textField: txtLoanOutlet)
     }
     
     func configureNavigationController() {
@@ -145,33 +120,6 @@ extension DetailViewController {
 // MARK:- DatePicker functionality
 extension DetailViewController {
     
-//    func createDatePicker() {
-//        let toolbar = UIToolbar()
-//        toolbar.sizeToFit()
-//
-//        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonPressed))
-//        toolbar.setItems([doneButton], animated: true)
-//        variableTextField.inputAccessoryView = toolbar
-//        variableTextField.inputView = datePicker
-//    }
-    
-//    @objc func doneButtonPressed() {
-//
-//        let formattedDate = Convenience.formatTheDate(date: datePicker.date as NSDate)
-//
-//        if (variableTextField == txtLoanOutlet) {
-//            loanDate = datePicker.date
-//            variableTextField.text = "date loaned: \(formattedDate)"
-//        } else if (variableTextField == txtReturnOutlet) {
-//            returnDate = datePicker.date
-//            variableTextField.text = "date of return: \(formattedDate)"
-//        }
-//
-//
-//        self.view.endEditing(true)
-//
-//    }
-    
     func returnDateFormatter() -> DateFormatter {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "MMM d, h:mm a"
@@ -183,13 +131,6 @@ extension DetailViewController {
 
 // MARK:- UITextFieldDelegate functionality
 extension DetailViewController:UITextFieldDelegate {
-    
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        if textField == txtLoanOutlet || textField == txtReturnOutlet {
-//            variableTextField = textField
-//            createDatePicker()
-//        }
-//    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -310,16 +251,6 @@ extension DetailViewController {
             return
         }
         
-//        guard validateTheDateItemIsBorrowed() else {
-//            presentLoginError(title: "INPUT ERROR", msg: "You have not properly selected a date the item is being borrowed. First, tap the date textfield and a date picker should appear. Select a date and press done.")
-//            return
-//        }
-        
-//        guard validateDateItemIsReturned() else {
-//            presentLoginError(title: "INPUT ERROR", msg: "You have not properly selected a date the item is being borrowed. First, tap the date textfield and a date picker should appear. Select a date and press done.")
-//            return
-//        }
-        
         guard validateValidDateRange() else {
             presentLoginError(title: "INPUT ERROR", msg: "The date range is invalid. Make sure that your return date doesn't predate the loan date.")
             return
@@ -348,27 +279,10 @@ extension DetailViewController {
         
     }
     
-//    func validateDateItemIsReturned() -> Bool {
-//        guard returnDate != nil else {
-//            txtReturnOutlet.becomeFirstResponder()
-//            return false
-//        }
-//        return true
-//    }
-    
-//    func validateTheDateItemIsBorrowed() -> Bool {
-        
-//        guard loanDate != nil else {
-//            txtLoanOutlet.becomeFirstResponder()
-//            return false
-//        }
-//        return true
-//    }
+
     
     func validateValidDateRange() -> Bool {
-//        guard let loanDate = loanDate , let returnDate = returnDate else {
-//            return false
-//        }
+
         guard datePickerStartDate.date.compare(datePickerEndDate.date) == .orderedAscending else {
             return false
         }
@@ -547,12 +461,7 @@ extension DetailViewController {
             
             
             nameOfItemLabelOutlet.text = detailItem.title
-            
-//            txtLoanOutlet.text = "date loaned: \(Convenience.formatTheDate(date: detailItem.startDate as! NSDate))"
-//            loanDate = detailItem.startDate
-            
-//            txtReturnOutlet.text = "date returned: \(Convenience.formatTheDate(date: detailItem.endDate as! NSDate))"
-//            returnDate = detailItem.endDate
+
             
             let person = detailItem.person
             if let data = person?.image {

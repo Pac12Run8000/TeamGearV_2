@@ -165,7 +165,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cKO-RM-m37">
-                                <rect key="frame" x="20" y="397" width="120" height="120"/>
+                                <rect key="frame" x="20" y="398" width="120" height="120"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="elb-we-Ami"/>
@@ -173,7 +173,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name of borrower" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rIk-uc-45s">
-                                <rect key="frame" x="150" y="397" width="244" height="35"/>
+                                <rect key="frame" x="150" y="398" width="244" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="8eF-mK-26e"/>
                                     <constraint firstAttribute="height" constant="35" id="NfI-YE-9t9"/>
@@ -182,14 +182,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KxQ-lo-jzY">
-                                <rect key="frame" x="0.0" y="377" width="414" height="4"/>
+                                <rect key="frame" x="0.0" y="378" width="414" height="4"/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.53333333333333333" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="ztL-S2-4z9"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your information was saved. Click the &quot;Back&quot; button." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIA-wp-cx4">
-                                <rect key="frame" x="150" y="447" width="244" height="70"/>
+                                <rect key="frame" x="150" y="448" width="244" height="70"/>
                                 <color key="backgroundColor" red="0.74901960779999999" green="0.53333333329999999" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="6wZ-a9-dla"/>
@@ -199,13 +199,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wWd-Fq-CZh">
-                                <rect key="frame" x="0.0" y="236" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="236" width="414" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="cam-SL-OOP"/>
+                                    <constraint firstAttribute="height" constant="55" id="cam-SL-OOP"/>
                                 </constraints>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uEj-jC-6Uq">
-                                <rect key="frame" x="0.0" y="305" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="306" width="414" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="UE7-fM-uWw"/>
                                 </constraints>
@@ -233,7 +233,7 @@
                             <constraint firstItem="rIk-uc-45s" firstAttribute="top" secondItem="KxQ-lo-jzY" secondAttribute="bottom" constant="16" id="Xsq-Hb-D4a"/>
                             <constraint firstItem="wWd-Fq-CZh" firstAttribute="top" secondItem="Ifx-Ly-NQh" secondAttribute="bottom" constant="8" id="bSb-Ic-ax5"/>
                             <constraint firstItem="iT6-y8-dgU" firstAttribute="trailing" secondItem="KxQ-lo-jzY" secondAttribute="trailing" id="gQr-tx-uzF"/>
-                            <constraint firstItem="uEj-jC-6Uq" firstAttribute="top" secondItem="wWd-Fq-CZh" secondAttribute="bottom" constant="9" id="gWG-CS-5r8"/>
+                            <constraint firstItem="uEj-jC-6Uq" firstAttribute="top" secondItem="wWd-Fq-CZh" secondAttribute="bottom" constant="15" id="gWG-CS-5r8"/>
                             <constraint firstItem="KxQ-lo-jzY" firstAttribute="top" secondItem="uEj-jC-6Uq" secondAttribute="bottom" constant="17" id="rdB-he-PeN"/>
                             <constraint firstItem="cKO-RM-m37" firstAttribute="top" secondItem="KxQ-lo-jzY" secondAttribute="bottom" constant="16" id="zet-Qu-LY3"/>
                         </constraints>
