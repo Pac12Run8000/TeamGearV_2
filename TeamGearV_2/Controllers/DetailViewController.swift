@@ -37,35 +37,20 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if itemState == .edit {
-//            self.datePickerStartDate.date = (detailItem?.startDate)!
-//            self.datePickerEndDate.date = (detailItem?.endDate)!
-//        }
-        
-        
-        
-        
-        
         addGesturecognizerForItemImageView()
         addGestureRecognizerForPersonImageView()
-
-
-        
         
         messageLabelUI()
         
         populateFieldsForUpdate()
         
-        configureTextFields()
+        configureForEditState()
         
         configureImageViews()
         
         view.backgroundColor = UIColor.darkBlue_3
         
-        
         configureNavigationController()
-        
-        
     
     }
     
@@ -73,8 +58,6 @@ class DetailViewController: UIViewController {
     
     @IBAction func btnSaveAction(_ sender: Any) {
         saveOrUpdateBorrowedItemAndPersonData()
-        
-        
     }
     
     
@@ -91,7 +74,7 @@ extension DetailViewController {
         imageAttributes(imgView: personImage)
     }
     
-    func configureTextFields() {
+    func configureForEditState() {
         textFieldattributes(textField: nameOfItemLabelOutlet)
         textFieldattributes(textField: nameOfBorrowerLabelOutlet)
     }
@@ -117,16 +100,7 @@ extension DetailViewController {
     
 }
 
-// MARK:- DatePicker functionality
-extension DetailViewController {
-    
-    func returnDateFormatter() -> DateFormatter {
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "MMM d, h:mm a"
-        return dateformatter
-    }
-    
-}
+
 
 
 // MARK:- UITextFieldDelegate functionality
@@ -142,7 +116,7 @@ extension DetailViewController:UITextFieldDelegate {
 // MARK:- AlertController for field validation
 extension DetailViewController {
     
-    func presentLoginError(title:String, msg:String) {
+    func presentAlertError(title:String, msg:String) {
         let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
         alertController.addAction(action)
@@ -163,7 +137,7 @@ extension DetailViewController {
                 imagePickerController.sourceType = .camera
                 self.present(imagePickerController, animated: true, completion: nil)
             } else {
-                self.presentLoginError(title: "Camera no available" , msg: "The camera isn't available on this device.")
+                self.presentAlertError(title: "Camera no available" , msg: "The camera isn't available on this device.")
             }
         }
         let clearAction = UIAlertAction(title: "Clear", style: .default) { (action) in
@@ -192,7 +166,7 @@ extension DetailViewController {
                 imagePickerController.sourceType = .camera
                 self.present(imagePickerController, animated: true, completion: nil)
             } else {
-                self.presentLoginError(title: "Camera no available" , msg: "The camera isn't available on this device.")
+                self.presentAlertError(title: "Camera no available" , msg: "The camera isn't available on this device.")
             }
             
         }
@@ -242,27 +216,27 @@ extension DetailViewController {
     func saveOrUpdateBorrowedItemAndPersonData() {
         
         guard validateItemImage() else {
-            presentLoginError(title: "INPUT ERROR", msg: "Select an image for the item.")
+            presentAlertError(title: "INPUT ERROR", msg: "Select an image for the item.")
             return
         }
         
         guard validateItemName() else {
-            presentLoginError(title: "INPUT ERROR", msg: "Enter a valid item name.")
+            presentAlertError(title: "INPUT ERROR", msg: "Enter a valid item name.")
             return
         }
         
         guard validateValidDateRange() else {
-            presentLoginError(title: "INPUT ERROR", msg: "The date range is invalid. Make sure that your return date doesn't predate the loan date.")
+            presentAlertError(title: "INPUT ERROR", msg: "The date range is invalid. Make sure that your return date doesn't predate the loan date.")
             return
         }
         
         guard validatePersonImageView() else {
-            presentLoginError(title: "INPUT ERROR", msg: "Select an image for a person who is borrowing the item.")
+            presentAlertError(title: "INPUT ERROR", msg: "Select an image for a person who is borrowing the item.")
             return
         }
         
         guard validatePersonName() else {
-            presentLoginError(title: "INPUT ERROR", msg: "Enter a valid name for a user.")
+            presentAlertError(title: "INPUT ERROR", msg: "Enter a valid name for a user.")
             return
         }
         
