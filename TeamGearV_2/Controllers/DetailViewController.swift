@@ -37,10 +37,10 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if itemState == .edit {
-            self.datePickerStartDate.date = (detailItem?.startDate)!
-            self.datePickerEndDate.date = (detailItem?.endDate)!
-        }
+//        if itemState == .edit {
+//            self.datePickerStartDate.date = (detailItem?.startDate)!
+//            self.datePickerEndDate.date = (detailItem?.endDate)!
+//        }
         
         
         
@@ -456,18 +456,19 @@ extension DetailViewController {
         if let detailItem = detailItem {
             
             if let data = detailItem.image {
-                itemImage.image = UIImage(data: data)
+                self.itemImage.image = UIImage(data: data)
             }
             
-            
-            nameOfItemLabelOutlet.text = detailItem.title
+            self.datePickerStartDate.date = detailItem.startDate!
+            self.datePickerEndDate.date = detailItem.endDate!
+            self.nameOfItemLabelOutlet.text = detailItem.title
 
             
             let person = detailItem.person
             if let data = person?.image {
-                personImage.image = UIImage(data: data)
+                self.personImage.image = UIImage(data: data)
             }
-            nameOfBorrowerLabelOutlet.text = person?.name
+            self.nameOfBorrowerLabelOutlet.text = person?.name
         }
     }
 }
